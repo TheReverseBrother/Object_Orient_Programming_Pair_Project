@@ -43,19 +43,4 @@ public class TestClient
             iox.printStackTrace();
         }
     }
-
-    public static void InitialMenu()
-    {
-        System.out.println("1. Register");
-        System.out.println("2. Login");
-        System.out.println("3. Exit");
-    }
-
-    public static void RegisterMenu()
-    {
-        System.out.println("Please Enter Email");
-        System.out.println("Please Enter Username");
-        System.out.println("Please Enter Password");
-    }
-    
 }
