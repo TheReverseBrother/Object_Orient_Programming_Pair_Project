@@ -1,6 +1,10 @@
 package Server;
 
 import CoreDetails.MovieDBDetails;
+import DAOs.MysqlMovieDAO;
+import Exceptions.DAOException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -27,56 +31,76 @@ public class MovieDBServer
                 InputStream in = dataSocket.getInputStream();
                 Scanner input = new Scanner(new InputStreamReader(in));
 
-
+                String[] yay = {"1","2"};
 
                 //The messages in and messages out we only ever need to use these 2 they are reusable
                 String returnMessage = "";
                 String incomingMessage = "";
-
+                JSONObject returnObject = null;
+                JSONArray returnArray = null;
                 while(connected)
                 {
-                    System.out.println("Test Connection");
-
                     incomingMessage = input.nextLine();
+                    System.out.println("Incoming Request: "+ incomingMessage);
+
                     String[] messageArray = incomingMessage.split("££");
-                    System.out.println("Length is" +messageArray.length);
-                    System.out.println(messageArray[0] +"-");
-                    int choice = Integer.parseInt(messageArray[1]);
+                    int choice = Integer.parseInt(messageArray[0]);
                     ServerOptions options = ServerOptions.values()[choice];
+                    MysqlMovieDAO movies = new MysqlMovieDAO();
                     switch(options)
                     {
                         case REGISTER:
-                            //Return information to be displayed back by the functions
+                            System.out.println("Register Request");
                             returnMessage = RegisterFunction(messageArray);
+                            output.println(returnMessage);
+                            output.flush();
                             break;
                         case LOGIN:
-                            returnMessage = "login";
+                            System.out.println("Login Request");
+                            returnArray = movies.findAllMovies();
+                            output.println(returnArray.toString());
+                            output.flush();
                             break;
                         case SEARCHBYACTOR:
-                            returnMessage = "Actor";
+                            System.out.println("Search by actor Request");
+                            returnArray = movies.findMovieByActor(messageArray[1]);
+                            output.println(returnArray.toString());
+                            output.flush();
                             break;
                         case SEARCHBYTITLE:
-                            returnMessage = "Title";
+                            System.out.println("Search by title request");
+                            returnObject = movies.findMovieByTitle(messageArray[1]);
+                            output.println(returnObject.toString());
+                            output.flush();
                             break;
                         case SEARCHBYDIRECTOR:
-                            returnMessage = "Director";
+                            System.out.println("search by director request");
+                            returnArray = movies.findMovieByDirector(messageArray[1]);
+                            output.println(returnArray.toString());
+                            output.flush();
                             break;
                         case UPDATE:
+                            System.out.println("Update Request");
                             returnMessage = "Update";
+                            output.println(returnMessage);
+                            output.flush();
                             break;
                         case WATCHED:
+                            System.out.println("Watched Request");
                             returnMessage = "Watched";
+                            output.println(returnMessage);
+                            output.flush();
                             break;
                         case RECOMMEND:
+                            System.out.println("Recommend Request");
                             returnMessage = "Recommend";
+                            output.println(returnMessage);
+                            output.flush();
                             break;
                         default:
                             System.out.println("Invalid Input.");
                     }
-
-                    // We build the return message using the switch statements no need to juggle outputstreams
-                    output.println(returnMessage);
-                    output.flush();
+                    System.out.println("Here");
                 }
 
                 //Step 5  - Shut down connection
@@ -88,6 +112,10 @@ public class MovieDBServer
         catch(IOException iox)
         {
             iox.printStackTrace();
+        }
+        catch (DAOException e)
+        {
+            e.printStackTrace();
         }
     }
 

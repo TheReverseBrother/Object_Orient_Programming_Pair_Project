@@ -1,6 +1,7 @@
 package Client;
 
 import CoreDetails.MovieDBDetails;
+import org.json.JSONArray;
 
 import java.io.*;
 import java.net.Socket;
@@ -13,7 +14,6 @@ public class TestClient
         boolean running = true;
         try
         {
-
             Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
 
             OutputStream out = dataSocket.getOutputStream();
@@ -21,24 +21,18 @@ public class TestClient
 
             InputStream in = dataSocket.getInputStream();
             Scanner input = new Scanner(new InputStreamReader(in));
-
-            Scanner keyboard = new Scanner(System.in);
-            String inputMessage = "";
-            String message = "0££BITCH";
-            while(running)
-            {
+            String message = "2££Robert Downey Jr.";
 
                 output.println(message);
                 output.flush();
+                String respone = input.nextLine();
 
-                String response = input.nextLine();
-                System.out.println("Response: " +response);
+                JSONArray ja = new JSONArray(respone);
+                System.out.println(ja);
 
-
-            }
-            dataSocket.close();
+                dataSocket.close();
         }
-        catch(IOException iox)
+        catch(Exception iox)
         {
             iox.printStackTrace();
         }

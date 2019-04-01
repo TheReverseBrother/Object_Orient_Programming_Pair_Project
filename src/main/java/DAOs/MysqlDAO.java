@@ -9,13 +9,12 @@ public class MysqlDAO
 {
     public Connection getConnection()throws Exceptions.DAOException
     {
-        String url = "jdbc:mysql://localhost/";
-        String dbName = "gd2OOPCA4";
+        String url = "jdbc:mysql://localhost/gd2oopca4";
+        String dbName = "gd2oopca4";
         String driver = "com.mysql.cj.jdbc.Driver";
         String username = "root";
         String password = "";
         Connection con = null;
-
         try
         {
             con = DriverManager.getConnection(url,username,password);

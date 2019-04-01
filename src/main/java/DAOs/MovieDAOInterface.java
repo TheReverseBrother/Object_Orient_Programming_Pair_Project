@@ -1,13 +1,13 @@
 package DAOs;
 
-import DTOs.Movie;
 import Exceptions.DAOException;
-
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public interface MovieDAOInterface
 {
-    public List<Movie> findAllMovies() throws DAOException;
-    public Movie findMovieByTitle(String title) throws DAOException;
-    public List<Movie> findMovieByDirector(String Director) throws DAOException;
+    public JSONArray findAllMovies() throws DAOException;
+    public JSONObject findMovieByTitle(String title) throws DAOException;
+    public JSONArray findMovieByDirector(String Director) throws DAOException;
+    public JSONArray findMovieByActor(String Actor) throws DAOException;
 }

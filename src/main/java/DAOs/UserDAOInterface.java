@@ -1,9 +1,10 @@
 package DAOs;
-import DTOs.User;
-import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public interface UserDAOInterface
 {
-    public List<User> findAllUsers() throws Exceptions.DAOException;
-    public User findUserByUsernamePassword(String username, String Password) throws Exceptions.DAOException;
+    public JSONArray findAllUsers() throws Exceptions.DAOException;
+    public JSONObject findUserByUsernamePassword(String username, String Password) throws Exceptions.DAOException;
 }
