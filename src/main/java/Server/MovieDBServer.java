@@ -31,8 +31,6 @@ public class MovieDBServer
                 InputStream in = dataSocket.getInputStream();
                 Scanner input = new Scanner(new InputStreamReader(in));
 
-                String[] yay = {"1","2"};
-
                 //The messages in and messages out we only ever need to use these 2 they are reusable
                 String returnMessage = "";
                 String incomingMessage = "";

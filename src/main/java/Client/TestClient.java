@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class TestClient
 {
+    public ClientServerConnection movies = new ClientServerConnection();
     public static void main(String[] args)
     {
         boolean running = true;
@@ -21,14 +22,18 @@ public class TestClient
 
             InputStream in = dataSocket.getInputStream();
             Scanner input = new Scanner(new InputStreamReader(in));
-            String message = "2££Robert Downey Jr.";
+            String message = "8££Robert Downey Jr.";
+            boolean continueR = true;
+  //              while(continueR)
+//                {
+                    output.println(message);
+                    output.flush();
+                    String respone = input.nextLine();
 
-                output.println(message);
-                output.flush();
-                String respone = input.nextLine();
+                    JSONArray ja = new JSONArray(respone);
+                    System.out.println(ja);
+//                }
 
-                JSONArray ja = new JSONArray(respone);
-                System.out.println(ja);
 
                 dataSocket.close();
         }
