@@ -346,4 +346,53 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 
         return movies;
     }
+
+    @Override
+    public String updateMovieByID(JSONObject movie)
+    {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try
+        {
+            con = this.getConnection();
+            String query = "UPDATE movies set title=?, genre=?,director=?,runtime=?,plot=?,starring=? WHERE ID = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1,movie.getString("title"));
+            ps.setString(2,movie.getString("genre"));
+            ps.setString(3,movie.getString("director"));
+            ps.setString(4,movie.getString("runtime"));
+            ps.setString(5,movie.getString("plot"));
+            ps.setString(6,movie.getString("starring"));
+            ps.setString(7,movie.getString("movieID"));
+
+            rs = ps.executeQuery();
+            return "SuccessFully Updated";
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                if(rs !=null)
+                {
+                    rs.close();
+                }
+                if(ps != null)
+                {
+                    ps.close();
+                }
+                if( con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
 }

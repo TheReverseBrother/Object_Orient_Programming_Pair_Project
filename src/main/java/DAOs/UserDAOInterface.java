@@ -5,6 +5,6 @@ import org.json.JSONObject;
 
 public interface UserDAOInterface
 {
-    public JSONArray findAllUsers() throws Exceptions.DAOException;
-    public JSONObject findUserByUsernamePassword(String username, String Password) throws Exceptions.DAOException;
+    public String findUserByUsernamePassword(String username, String Password) throws Exceptions.DAOException;
+    public String registerUser(String Username, String Password);
 }

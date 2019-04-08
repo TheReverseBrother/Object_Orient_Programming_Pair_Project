@@ -1,6 +1,7 @@
 package Server;
 
 import DAOs.MysqlMovieDAO;
+import DAOs.MysqlUserDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -15,7 +16,7 @@ public class Connection implements Runnable
     private Socket socketToHandle;
 
     private static List pool = new LinkedList();
-
+    public MysqlUserDAO user = new MysqlUserDAO();
 
     public Connection(){}
 
@@ -87,14 +88,15 @@ public class Connection implements Runnable
                 {
                     case REGISTER:
                         System.out.println("Register Request");
-//                        returnMessage = RegisterFunction(messageArray);
+                        returnMessage = Register(messageArray[1],messageArray[2]);
                         output.println(returnMessage);
                         output.flush();
                         break;
                     case LOGIN:
                         System.out.println("Login Request");
-                        returnArray = movies.findAllMovies();
-                        output.println(returnArray.toString());
+                        System.out.println(messageArray[1]);
+                        returnMessage = user.findUserByUsernamePassword(messageArray[1],messageArray[2]);
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     case SEARCHBYACTOR:
@@ -117,7 +119,8 @@ public class Connection implements Runnable
                         break;
                     case UPDATE:
                         System.out.println("Update Request");
-                        returnMessage = "Update";
+                        JSONObject movie = new JSONObject(messageArray[1]);
+                        returnMessage = movies.updateMovieByID(movie);
                         output.println(returnMessage);
                         output.flush();
                         break;
@@ -150,6 +153,20 @@ public class Connection implements Runnable
         {
             e.printStackTrace();
             System.out.println("HAH BITCH");
+        }
+    }
+
+    public String Register(String Username,String Password)
+    {
+        Boolean exists = user.checkIfUserExists(Username);
+
+        if(exists)
+        {
+            return "false££User Exists";
+        }
+        else
+        {
+            return "true££"+user.registerUser(Username,Password);
         }
     }
 }

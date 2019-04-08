@@ -2,6 +2,7 @@ package Client;
 
 import CoreDetails.MovieDBDetails;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
@@ -32,10 +33,8 @@ public class ClientServerConnection
         }
     }
 
-    public JSONArray FetchingArray()
+    public JSONArray FetchingArray(String message)
     {
-        String message = "2££Robert Downey Jr.";
-
         output.println(message);
         output.flush();
         String respone = input.nextLine();
@@ -45,13 +44,19 @@ public class ClientServerConnection
 
     }
 
-    public String fetchString()
+    public JSONObject fetchObject(String message)
     {
-        String message = "2££Robert Downey Jr.";
-
         output.println(message);
         output.flush();
+        String respone = input.nextLine();
+        JSONObject returnMessage = new JSONObject(respone);
+        return returnMessage;
+    }
 
+    public String fetchString(String message)
+    {
+        output.println(message);
+        output.flush();
 
         String returnMessage = input.nextLine();
         return returnMessage;

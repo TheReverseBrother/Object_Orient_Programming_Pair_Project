@@ -10,4 +10,5 @@ public interface MovieDAOInterface
     public JSONObject findMovieByTitle(String title) throws DAOException;
     public JSONArray findMovieByDirector(String Director) throws DAOException;
     public JSONArray findMovieByActor(String Actor) throws DAOException;
+    public String updateMovieByID(JSONObject movie);
 }
