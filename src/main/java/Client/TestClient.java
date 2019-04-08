@@ -24,7 +24,7 @@ public class TestClient
             InputStream in = dataSocket.getInputStream();
             Scanner input = new Scanner(new InputStreamReader(in));
 //            String message = "0££TomasSMith@gmail.com££MRMEESEEKS";
-            String message = "0££AaronRichardson@hotmail.com££REEEEE";
+            String message = "7££1££16££x men first class";
             boolean continueR = true;
 //                while(continueR)
 //                {
@@ -32,8 +32,8 @@ public class TestClient
                     output.flush();
                     String respone = input.nextLine();
 
-//                    JSONArray ja = new JSONArray(respone);
-                    System.out.println(respone);
+                    JSONArray ja = new JSONArray(respone);
+                    System.out.println(ja);
 //                }
 
 

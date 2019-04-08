@@ -80,19 +80,17 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String result = "Slut";
+        String result = "";
         int userID = 0;
         String dbPassword = null;
         try
         {
-            System.out.println("Fight Me");
             con = this.getConnection();
             String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
             ps = con.prepareStatement(query);
             ps.setString(1,Username);
             ps.setString(2,Password);
             ps.executeUpdate();
-            System.out.println("In Here Nigga"+ rs);
             result = "Registered Congratulations Login to Enjoy Features";
 
         }

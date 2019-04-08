@@ -1,0 +1,58 @@
+Here are all the protocols for the server and what they respond with as long as you make sure the
+protocol reads like this you can figure out what it will send back
+
+Our Breaking Characters= '££';
+Each message sent starts with a number here is what they correspond to:
+0: REGISTER
+1: LOGIN
+2: SEARCHBYACTOR
+3: SEARCHBYTITLE
+4: SEARCHBYDIRECTOR
+5: UPDATE
+6: WATCHED
+7: RECOMMEND
+8: QUIT
+
+
+
+REGISTER:
+0££(Username)££(Password)
+This calls the register function pass the parameters of Username and Password
+RETURNS STRING: 
+if exists "false££(message)" can print message to Username
+if doesnt exist "true££(message)" can print message
+
+LOGIN:
+1££(Username)££(Password)
+This Calls the login function pass username and Password
+RETURNS STRING:
+if successful "true££(UserID)" Returns the UserID
+if unsuccessful "false££(message)"
+
+SEARCHBYACTOR:
+2££(ACTOR)
+RETURNS JSONARRAY: when you call this 
+create a json object with the string you have
+
+SEARCHBYTITLE:
+3££(TITLE)
+RETURNS JSONOBJECT: 
+
+SEARCHBYDIRECTOR:
+4££(DIRECTOR)
+RETURNS JSONARRAY:
+
+UPDATE:
+5££(PASS In Movie in json.tostring)
+RETURNS: Message to confirm UPDATE
+
+WATCHED:
+6££(userID its an Int)££(MoviedID its an Int)££(MovieTitle)
+RETURNS JSONARRAY:
+
+RECOMMEND:
+SAME
+
+QUIT:
+8££Exiting
+Returns fuck all

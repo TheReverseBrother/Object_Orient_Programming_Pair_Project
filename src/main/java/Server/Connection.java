@@ -1,7 +1,9 @@
 package Server;
 
+import CoreDetails.MovieDBDetails;
 import DAOs.MysqlMovieDAO;
 import DAOs.MysqlUserDAO;
+import DAOs.WatchedDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -17,6 +19,7 @@ public class Connection implements Runnable
 
     private static List pool = new LinkedList();
     public MysqlUserDAO user = new MysqlUserDAO();
+    public WatchedDAO watched = new WatchedDAO();
 
     public Connection(){}
 
@@ -80,7 +83,7 @@ public class Connection implements Runnable
                 incomingMessage = input.nextLine();
                 System.out.println("Incoming Request: "+ incomingMessage);
 
-                String[] messageArray = incomingMessage.split("££");
+                String[] messageArray = incomingMessage.split(MovieDBDetails.BREAKINGCHARACTERS);
                 int choice = Integer.parseInt(messageArray[0]);
                 ServerOptions options = ServerOptions.values()[choice];
                 MysqlMovieDAO movies = new MysqlMovieDAO();
@@ -126,13 +129,13 @@ public class Connection implements Runnable
                         break;
                     case WATCHED:
                         System.out.println("Watched Request");
-                        returnMessage = "Watched";
+                        returnMessage = watched.AddtoWatched(messageArray[1],messageArray[2],messageArray[3]);
                         output.println(returnMessage);
                         output.flush();
                         break;
                     case RECOMMEND:
                         System.out.println("Recommend Request");
-                        returnMessage = "Recommend";
+                        returnMessage = "";
                         output.println(returnMessage);
                         output.flush();
                         break;
@@ -168,5 +171,17 @@ public class Connection implements Runnable
         {
             return "true££"+user.registerUser(Username,Password);
         }
+    }
+
+    public static class CheckingSomething
+    {
+    //    public static void main(String[] args)
+    //    {
+    //        ClientServerConnection check = new ClientServerConnection();
+    //
+    //        JSONArray ja = check.FetchingArray();
+    //
+    //        System.out.println(ja);
+    //    }
     }
 }
