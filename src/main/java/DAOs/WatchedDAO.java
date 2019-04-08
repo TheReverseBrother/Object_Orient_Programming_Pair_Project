@@ -118,8 +118,56 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
     }
 
     @Override
-    public String CheckIfWatched()
+    public Boolean CheckIfWatched(String user,String movie)
     {
-        return null;
+        int userID = Integer.parseInt(user);
+        int movieID = Integer.parseInt(movie);
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        JSONArray WatchedList = new JSONArray();
+        try
+        {
+            con = this.getConnection();
+            String query = "SELECT * FROM WATCHEDTABLE WHERE USERID=? AND MOVIEID=?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1,userID);
+
+            rs = ps.executeQuery();
+
+            if(rs.next())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch(SQLException e)
+        {
+
+        }
+        finally {
+            try{
+                if(rs !=null)
+                {
+                    rs.close();
+                }
+                if(ps != null)
+                {
+                    ps.close();
+                }
+                if( con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch(SQLException e)
+            {
+            }
+        }
+
+        return false;
     }
 }

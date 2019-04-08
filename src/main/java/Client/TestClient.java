@@ -24,7 +24,7 @@ public class TestClient
             InputStream in = dataSocket.getInputStream();
             Scanner input = new Scanner(new InputStreamReader(in));
 //            String message = "0££TomasSMith@gmail.com££MRMEESEEKS";
-            String message = "7££1££16££x men first class";
+            String message = "2££Robert Downey Jr";
             boolean continueR = true;
 //                while(continueR)
 //                {
