@@ -9,11 +9,10 @@ Each message sent starts with a number here is what they correspond to:
 3: SEARCHBYTITLE
 4: SEARCHBYDIRECTOR
 5: UPDATE
-6: WATCHED
+6: ADD TO WATCHED
 7: RECOMMEND
 8: QUIT
-
-
+9: GET WATCHED
 
 REGISTER:
 0££(Username)££(Password)
@@ -46,15 +45,19 @@ UPDATE:
 5££(PASS In Movie in json.tostring)
 RETURNS: Message to confirm UPDATE
 
-WATCHED:
+ADD TOWATCHED:
 6££(userID its an Int)££(MoviedID its an Int)££(MovieTitle)
 RETURNS STRING:
 if successful   : "true££(message)"
 if unsuccessful : "false££(message)"
 
 RECOMMEND:
-SAME
+Aint doing shit
 
 QUIT:
 8££Exiting
 Returns fuck all
+
+GETALLWATCHER:
+9££(USERID)
+returns JSONARRAY

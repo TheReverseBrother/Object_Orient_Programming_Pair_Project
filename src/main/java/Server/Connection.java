@@ -127,8 +127,8 @@ public class Connection implements Runnable
                         output.println(returnMessage);
                         output.flush();
                         break;
-                    case WATCHED:
-                        System.out.println("Watched Request");
+                    case ADD_TO_WATCHED:
+                        System.out.println("Add To Watched Request");
                         returnMessage = AddtoWatchedChecker(messageArray[1],messageArray[2],messageArray[3]);
                         output.println(returnMessage);
                         output.flush();
@@ -141,6 +141,12 @@ public class Connection implements Runnable
                         break;
                     case QUIT:
                         connected = false;
+                        break;
+                    case GET_WATCHED:
+                        System.out.println("Get Watched Request");
+                        returnArray = watched.GetAllWatchedMovies(messageArray[1]);
+                        output.println(returnArray.toString());
+                        output.flush();
                         break;
                     default:
                         System.out.println("Invalid Input.");

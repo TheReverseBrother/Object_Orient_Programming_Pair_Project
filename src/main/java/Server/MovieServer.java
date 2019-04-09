@@ -46,7 +46,6 @@ public class MovieServer
             while(true)
             {
                 incomingConnection = server.accept();
-                //Handle the client either with one of our service threads or else out in the queue
                 handleConnection(incomingConnection);
             }
 
