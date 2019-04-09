@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21da94c0-8b2f-4f12-ba73-3de0001f2848" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/USERMANUEL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/USERMANUEL.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/TestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/TestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/MovieServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/MovieServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/ServerOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/ServerOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Enums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Menus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/Menus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client/TestClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/TestClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/Connection$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Connection$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Connection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/MovieServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/MovieServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/ServerOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/ServerOptions.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,128 +24,108 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="721477125">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.2" value="3" />
-          <entry key="project.open.time.32" value="2" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.35" value="1" />
-          <entry key="project.open.time.38" value="1" />
-          <entry key="project.open.time.43" value="1" />
-          <entry key="project.open.time.48" value="1" />
-          <entry key="project.open.time.67" value="1" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="19" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1721" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="5203" />
-          <entry key="PLAIN_TEXT" value="329" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="java" value="45" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="99" />
-          <entry key="PLAIN_TEXT" value="16" />
-          <entry key="XML" value="11" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Server/MovieServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1652#1653#0" expanded="true" />
-                <element signature="e#1713#1714#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/USERMANUEL.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Server/ServerOptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="101" selection-start-line="2" selection-start-column="101" selection-end-line="2" selection-end-column="101" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Server/Connection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/WatchedDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.638448">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Enums.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="272">
+                  <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Server/ServerOptions.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="34">
+                  <caret line="2" column="101" selection-start-line="2" selection-start-column="101" selection-end-line="2" selection-end-column="101" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1019">
+                  <caret line="735" column="10" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/USERMANUEL.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-463">
+                  <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                  <folding>
+                    <element signature="e#86#87#0" expanded="true" />
+                    <element signature="e#118#119#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -158,7 +147,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Exceptions/DAOexception.java" />
         <option value="$PROJECT_DIR$/src/main/java/DAOs/MysqlDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/MovieDBDetails/MovieDBDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Client/Menus.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Server/MovieDBServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/ClientServerConnection.java" />
@@ -176,6 +164,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Server/ServerOptions.java" />
         <option value="$PROJECT_DIR$/src/main/java/Server/Connection.java" />
         <option value="$PROJECT_DIR$/USERMANUEL.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Client/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Client/Menus.java" />
       </list>
     </option>
   </component>
@@ -186,10 +177,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="246" />
+    <option name="y" value="-25" />
+    <option name="width" value="979" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -203,29 +195,37 @@
           <expand>
             <path>
               <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomas_AaronOOCA" type="462c0819:PsiDirectoryNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomas_AaronOOCA" type="462c0819:PsiDirectoryNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomas_AaronOOCA" type="462c0819:PsiDirectoryNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomas_AaronOOCA" type="462c0819:PsiDirectoryNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tomas_AaronOOCA" type="462c0819:PsiDirectoryNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -238,7 +238,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554804247474" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554839556288" />
+    <property name="last.edited.regexp" value="Quit" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tomas_AaronW" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.1484375" />
@@ -263,7 +264,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestClient">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client.Client" />
+      <module name="tomas_aaronooca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Menus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Client.Menus" />
+      <module name="tomas_aaronooca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MovieDBServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MothballedCode.MovieDBServer" />
       <module name="Tomas_AaronOOCA" />
@@ -307,9 +334,13 @@
       <item itemvalue="Application.MovieDBServer" />
       <item itemvalue="Application.TestClient" />
       <item itemvalue="Application.MovieServer" />
+      <item itemvalue="Application.Menus" />
+      <item itemvalue="Application.Client" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Menus" />
         <item itemvalue="Application.TestClient" />
         <item itemvalue="Application.MovieServer" />
         <item itemvalue="Application.MovieDBServer" />
@@ -329,13 +360,21 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.19597316" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14220877" />
       <window_info id="DB Browser" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Project Explorer" order="5" />
@@ -345,13 +384,46 @@
       <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32152975" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31950846" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32872504" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Console" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32872504" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32718894" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14220877" />
+      <window_info id="DB Browser" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Project Explorer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Job Explorer" order="8" />
+      <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32104453" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Console" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" />
@@ -364,10 +436,7 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Exceptions/DAOException.java">
@@ -435,19 +504,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/.name">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1581" />
+        <state relative-caret-position="1019">
+          <caret line="735" column="10" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
@@ -478,13 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/WatchedDAOInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -503,13 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -532,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Server/ServerOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="101" selection-start-line="2" selection-start-column="101" selection-end-line="2" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Server/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -546,10 +589,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server/ServerOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="101" selection-start-line="2" selection-start-column="101" selection-end-line="2" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Enums.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/USERMANUEL.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+        <state relative-caret-position="-463">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#86#87#0" expanded="true" />
+            <element signature="e#118#119#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

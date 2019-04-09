@@ -84,7 +84,7 @@ public class MovieDBServer
                             output.println(returnMessage);
                             output.flush();
                             break;
-                        case WATCHED:
+                        case ADD_TO_WATCHED:
                             System.out.println("Watched Request");
                             returnMessage = "Watched";
                             output.println(returnMessage);

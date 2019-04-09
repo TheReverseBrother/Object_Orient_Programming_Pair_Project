@@ -1,66 +1,59 @@
 package Client;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Menus
 {
 
-    public static void InitialMenu()
-    {
-        System.out.println("1. Register");
-        System.out.println("2. Login");
-        System.out.println("3. Exit");
-    }
 
-    public static void RegisterMenu()
+    public static void mainMenu()
     {
-        System.out.println("Please Enter Email");
-        System.out.println("Please Enter Username");
-        System.out.println("Please Enter Password");
-    }
-
-    public static void LoginMenu()
-    {
-        System.out.println("Please Enter Username");
-        System.out.println("Please Enter Password");
-    }
-
-    public static void MainMenu()
-    {
-        System.out.println("1. Search Movies");
-        System.out.println("2. Update Movies");
-        System.out.println("3. Add Movie to Database");
-        System.out.println("4. Add Movie to Watched");
-        System.out.println("5. Display Watched Movies");
-        System.out.println("4. Get Recommendation");
-    }
-
-    public static void SearchMenu()
-    {
-        System.out.println("Search Movies By: ");
-        System.out.println("1. Title");
-        System.out.println("2. Director");
-        System.out.println("3. Actor/Actress");
-    }
+        boolean selected = false;
 
 
-    public static int integerChecker()
-    {
-        Scanner sc = new Scanner(System.in);
-        boolean check = true;
-        int number = 0;
-        while (check)
+        while (!selected)
         {
-            try
+
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("type in the command you wish to execute");
+            System.out.println("Login");
+            System.out.println("Register");
+            System.out.println("Quit");
+            String input = keyboard.nextLine();
+
+
+            if (input.matches("[Qq][uU][iI][tT]"))
             {
-                number = Integer.parseInt(sc.next());
-                check = false;
+                selected = true;
+                if(Client.isConnected())
+                {
+                    System.out.println("TODO Send sever disconnect request");
+                    Client.setConnectionToFalse();
+                }
+                else {System.out.println("Goodbye hope to see you later");}
+
             }
-            catch(NumberFormatException ignore)
+            else if (input.matches("[lL][oO][gG][iI][nN]"))
             {
-                System.out.println("Please Enter Valid Number");
+                System.out.println("test");
+                selected = true;
+
             }
+            //Register
+            else if (input.matches("[rR][eE][gG][iI][sS][tT][eE][rR]"))
+            {
+                System.out.println("test");
+                selected = true;
+
+            }
+
+            else
+                {
+                    System.out.println("invalid input please type a recognised command");
+                    System.out.println();
+                }
+
         }
-        return number;
     }
 }
