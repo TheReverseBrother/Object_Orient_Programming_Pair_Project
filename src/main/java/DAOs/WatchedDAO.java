@@ -86,7 +86,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             ps.setInt(2,movieID);
             ps.setString(3,title);
             ps.executeUpdate();
-            result = "Done Bitch";
+            result = "SuccesfullyAdded";
 
         }
         catch(SQLException e)
@@ -132,7 +132,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             String query = "SELECT * FROM WATCHEDTABLE WHERE USERID=? AND MOVIEID=?";
             ps = con.prepareStatement(query);
             ps.setInt(1,userID);
-
+            ps.setInt(2,movieID);
             rs = ps.executeQuery();
 
             if(rs.next())

@@ -129,7 +129,7 @@ public class Connection implements Runnable
                         break;
                     case WATCHED:
                         System.out.println("Watched Request");
-                        returnMessage = watched.AddtoWatched(messageArray[1],messageArray[2],messageArray[3]);
+                        returnMessage = AddtoWatchedChecker(messageArray[1],messageArray[2],messageArray[3]);
                         output.println(returnMessage);
                         output.flush();
                         break;
@@ -173,15 +173,17 @@ public class Connection implements Runnable
         }
     }
 
-    public static class CheckingSomething
+    public String AddtoWatchedChecker(String user,String movie, String title)
     {
-    //    public static void main(String[] args)
-    //    {
-    //        ClientServerConnection check = new ClientServerConnection();
-    //
-    //        JSONArray ja = check.FetchingArray();
-    //
-    //        System.out.println(ja);
-    //    }
+        boolean isWatched = watched.CheckIfWatched(user,movie);
+
+        if(isWatched)
+        {
+            return "false££Movie Has Been Already Added";
+        }
+        else
+        {
+            return "true££"+watched.AddtoWatched(user,movie,title);
+        }
     }
 }
