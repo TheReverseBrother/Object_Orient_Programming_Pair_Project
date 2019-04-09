@@ -48,7 +48,9 @@ RETURNS: Message to confirm UPDATE
 
 WATCHED:
 6££(userID its an Int)££(MoviedID its an Int)££(MovieTitle)
-RETURNS JSONARRAY:
+RETURNS STRING:
+if successful   : "true££(message)"
+if unsuccessful : "false££(message)"
 
 RECOMMEND:
 SAME
