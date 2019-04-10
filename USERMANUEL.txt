@@ -32,14 +32,19 @@ SEARCHBYACTOR:
 2££(ACTOR)
 RETURNS JSONARRAY: when you call this 
 create a json object with the string you have
+if aint there returns "null"
+
 
 SEARCHBYTITLE:
 3££(TITLE)
-RETURNS JSONOBJECT: 
+RETURNS JSONOBJECT:
+if aint there returns "null"
+
 
 SEARCHBYDIRECTOR:
 4££(DIRECTOR)
 RETURNS JSONARRAY:
+if aint there returns "null"
 
 UPDATE:
 5££(PASS In Movie in json.tostring)
@@ -61,3 +66,5 @@ Returns fuck all
 GETALLWATCHER:
 9££(USERID)
 returns JSONARRAY
+if aint there returns "null"
+

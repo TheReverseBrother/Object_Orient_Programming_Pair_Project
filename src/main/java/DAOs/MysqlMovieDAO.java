@@ -27,46 +27,53 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 
             //User the prepared statement to execute SQL
             rs = ps.executeQuery();
-
-            while(rs.next())
+            if(rs.next())
             {
-                int movieID         = rs.getInt("ID");
-                String title        = rs.getString("Title");
-                String genre        = rs.getString("Genre");
-                String director     = rs.getString("director");
-                String runtime      = rs.getString("runtime");
-                String plot         = rs.getString("Plot");
-                String location     = rs.getString("Location");
-                String poster       = rs.getString("Poster");
-                String rating       = rs.getString("Rating");
-                String format       = rs.getString("Format");
-                String year         = rs.getString("Year");
-                String starring     = rs.getString("Starring");
-                int copies          = rs.getInt("Copies");
-                String barcode      = rs.getString("Barcode");
-                String user_rating  = rs.getString("User_Rating");
+                while(rs.next())
+                {
+                    int movieID         = rs.getInt("ID");
+                    String title        = rs.getString("Title");
+                    String genre        = rs.getString("Genre");
+                    String director     = rs.getString("director");
+                    String runtime      = rs.getString("runtime");
+                    String plot         = rs.getString("Plot");
+                    String location     = rs.getString("Location");
+                    String poster       = rs.getString("Poster");
+                    String rating       = rs.getString("Rating");
+                    String format       = rs.getString("Format");
+                    String year         = rs.getString("Year");
+                    String starring     = rs.getString("Starring");
+                    int copies          = rs.getInt("Copies");
+                    String barcode      = rs.getString("Barcode");
+                    String user_rating  = rs.getString("User_Rating");
 
 
-                JSONObject movie = new JSONObject();
-                movie.put("movieID    ",""+movieID);
-                movie.put("title      ",""+title);
-                movie.put("genre      ",""+genre);
-                movie.put("director   ",""+director);
-                movie.put("runtime    ",""+runtime);
-                movie.put("plot       ",""+plot);
-                movie.put("location   ",""+location);
-                movie.put("poster     ",""+poster);
-                movie.put("rating     ",""+rating);
-                movie.put("format     ",""+format);
-                movie.put("year       ",""+year);
-                movie.put("starring   ",""+starring);
-                movie.put("copies     ",""+copies);
-                movie.put("barcode    ",""+barcode);
-                movie.put("user_rating",""+user_rating);
+                    JSONObject movie = new JSONObject();
+                    movie.put("movieID    ",""+movieID);
+                    movie.put("title      ",""+title);
+                    movie.put("genre      ",""+genre);
+                    movie.put("director   ",""+director);
+                    movie.put("runtime    ",""+runtime);
+                    movie.put("plot       ",""+plot);
+                    movie.put("location   ",""+location);
+                    movie.put("poster     ",""+poster);
+                    movie.put("rating     ",""+rating);
+                    movie.put("format     ",""+format);
+                    movie.put("year       ",""+year);
+                    movie.put("starring   ",""+starring);
+                    movie.put("copies     ",""+copies);
+                    movie.put("barcode    ",""+barcode);
+                    movie.put("user_rating",""+user_rating);
 
 
-                movies.put(movie);
+                    movies.put(movie);
+                }
             }
+            else
+            {
+                return null;
+            }
+
         }
         catch(SQLException e)
         {
@@ -194,45 +201,52 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 
             //User the prepared statement to execute SQL
             rs = ps.executeQuery();
-
-            while(rs.next())
+            if(rs.next())
             {
-                int movieID = rs.getInt("ID");
-                String title = rs.getString("Title");
-                String genre = rs.getString("Genre");
-                String director = rs.getString("director");
-                String runtime = rs.getString("runtime");
-                String plot = rs.getString("Plot");
-                String location = rs.getString("Location");
-                String poster = rs.getString("Poster");
-                String rating = rs.getString("Rating");
-                String format = rs.getString("Format");
-                String year = rs.getString("Year");
-                String starring = rs.getString("Starring");
-                int copies = rs.getInt("Copies");
-                String barcode = rs.getString("Barcode");
-                String user_rating = rs.getString("User_Rating");
+                while(rs.next())
+                {
+                    int movieID = rs.getInt("ID");
+                    String title = rs.getString("Title");
+                    String genre = rs.getString("Genre");
+                    String director = rs.getString("director");
+                    String runtime = rs.getString("runtime");
+                    String plot = rs.getString("Plot");
+                    String location = rs.getString("Location");
+                    String poster = rs.getString("Poster");
+                    String rating = rs.getString("Rating");
+                    String format = rs.getString("Format");
+                    String year = rs.getString("Year");
+                    String starring = rs.getString("Starring");
+                    int copies = rs.getInt("Copies");
+                    String barcode = rs.getString("Barcode");
+                    String user_rating = rs.getString("User_Rating");
 
-                JSONObject movie = new JSONObject();
-                movie.put("movieID    ",""+movieID);
-                movie.put("title      ",""+title);
-                movie.put("genre      ",""+genre);
-                movie.put("director   ",""+director);
-                movie.put("runtime    ",""+runtime);
-                movie.put("plot       ",""+plot);
-                movie.put("location   ",""+location);
-                movie.put("poster     ",""+poster);
-                movie.put("rating     ",""+rating);
-                movie.put("format     ",""+format);
-                movie.put("year       ",""+year);
-                movie.put("starring   ",""+starring);
-                movie.put("copies     ",""+copies);
-                movie.put("barcode    ",""+barcode);
-                movie.put("user_rating",""+user_rating);
+                    JSONObject movie = new JSONObject();
+                    movie.put("movieID    ",""+movieID);
+                    movie.put("title      ",""+title);
+                    movie.put("genre      ",""+genre);
+                    movie.put("director   ",""+director);
+                    movie.put("runtime    ",""+runtime);
+                    movie.put("plot       ",""+plot);
+                    movie.put("location   ",""+location);
+                    movie.put("poster     ",""+poster);
+                    movie.put("rating     ",""+rating);
+                    movie.put("format     ",""+format);
+                    movie.put("year       ",""+year);
+                    movie.put("starring   ",""+starring);
+                    movie.put("copies     ",""+copies);
+                    movie.put("barcode    ",""+barcode);
+                    movie.put("user_rating",""+user_rating);
 
 
-                movies.put(movie);
+                    movies.put(movie);
+                }
             }
+            else
+            {
+                return null;
+            }
+
         }
         catch(SQLException e)
         {
@@ -279,45 +293,52 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 
             //User the prepared statement to execute SQL
             rs = ps.executeQuery();
-
-            while(rs.next())
+            if(rs.next())
             {
-                int movieID = rs.getInt("ID");
-                String title = rs.getString("Title");
-                String genre = rs.getString("Genre");
-                String director = rs.getString("director");
-                String runtime = rs.getString("runtime");
-                String plot = rs.getString("Plot");
-                String location = rs.getString("Location");
-                String poster = rs.getString("Poster");
-                String rating = rs.getString("Rating");
-                String format = rs.getString("Format");
-                String year = rs.getString("Year");
-                String starring = rs.getString("Starring");
-                int copies = rs.getInt("Copies");
-                String barcode = rs.getString("Barcode");
-                String user_rating = rs.getString("User_Rating");
+                while(rs.next())
+                {
+                    int movieID = rs.getInt("ID");
+                    String title = rs.getString("Title");
+                    String genre = rs.getString("Genre");
+                    String director = rs.getString("director");
+                    String runtime = rs.getString("runtime");
+                    String plot = rs.getString("Plot");
+                    String location = rs.getString("Location");
+                    String poster = rs.getString("Poster");
+                    String rating = rs.getString("Rating");
+                    String format = rs.getString("Format");
+                    String year = rs.getString("Year");
+                    String starring = rs.getString("Starring");
+                    int copies = rs.getInt("Copies");
+                    String barcode = rs.getString("Barcode");
+                    String user_rating = rs.getString("User_Rating");
 
-                JSONObject movie = new JSONObject();
-                movie.put("movieID    ",""+movieID);
-                movie.put("title      ",""+title);
-                movie.put("genre      ",""+genre);
-                movie.put("director   ",""+director);
-                movie.put("runtime    ",""+runtime);
-                movie.put("plot       ",""+plot);
-                movie.put("location   ",""+location);
-                movie.put("poster     ",""+poster);
-                movie.put("rating     ",""+rating);
-                movie.put("format     ",""+format);
-                movie.put("year       ",""+year);
-                movie.put("starring   ",""+starring);
-                movie.put("copies     ",""+copies);
-                movie.put("barcode    ",""+barcode);
-                movie.put("user_rating",""+user_rating);
+                    JSONObject movie = new JSONObject();
+                    movie.put("movieID    ",""+movieID);
+                    movie.put("title      ",""+title);
+                    movie.put("genre      ",""+genre);
+                    movie.put("director   ",""+director);
+                    movie.put("runtime    ",""+runtime);
+                    movie.put("plot       ",""+plot);
+                    movie.put("location   ",""+location);
+                    movie.put("poster     ",""+poster);
+                    movie.put("rating     ",""+rating);
+                    movie.put("format     ",""+format);
+                    movie.put("year       ",""+year);
+                    movie.put("starring   ",""+starring);
+                    movie.put("copies     ",""+copies);
+                    movie.put("barcode    ",""+barcode);
+                    movie.put("user_rating",""+user_rating);
 
 
-                movies.put(movie);
+                    movies.put(movie);
+                }
             }
+            else
+            {
+                return null;
+            }
+
         }
         catch(SQLException e)
         {

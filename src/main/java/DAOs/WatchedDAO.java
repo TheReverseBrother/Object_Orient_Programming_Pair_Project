@@ -27,18 +27,25 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             ps.setInt(1,userID);
 
             rs = ps.executeQuery();
-
-            while(rs.next())
+            if(rs.next())
             {
-                String title   = rs.getString("MovieTitle");
-                String movieID = rs.getString("movieID");
+                while(rs.next())
+                {
+                    String title   = rs.getString("MovieTitle");
+                    String movieID = rs.getString("movieID");
 
-                JSONObject Watched = new JSONObject();
-                Watched.put("title      ",""+title);
-                Watched.put("movieID      ",""+movieID);
+                    JSONObject Watched = new JSONObject();
+                    Watched.put("title      ",""+title);
+                    Watched.put("movieID      ",""+movieID);
 
-                WatchedList.put(Watched);
+                    WatchedList.put(Watched);
+                }
             }
+            else
+            {
+                return null;
+            }
+
         }
         catch(SQLException e)
         {
@@ -125,7 +132,6 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        JSONArray WatchedList = new JSONArray();
         try
         {
             con = this.getConnection();

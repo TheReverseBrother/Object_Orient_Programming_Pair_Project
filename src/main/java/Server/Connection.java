@@ -105,19 +105,43 @@ public class Connection implements Runnable
                     case SEARCHBYACTOR:
                         System.out.println("Search by actor Request");
                         returnArray = movies.findMovieByActor(messageArray[1]);
-                        output.println(returnArray.toString());
+                        if(returnArray == null)
+                        {
+                            returnMessage = "null";
+                        }
+                        else
+                        {
+                            returnMessage = returnArray.toString();
+                        }
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     case SEARCHBYTITLE:
                         System.out.println("Search by title request");
                         returnObject = movies.findMovieByTitle(messageArray[1]);
+                        if(returnObject == null)
+                        {
+                            returnMessage = "null";
+                        }
+                        else
+                        {
+                            returnMessage = returnObject.toString();
+                        }
                         output.println(returnObject.toString());
                         output.flush();
                         break;
                     case SEARCHBYDIRECTOR:
                         System.out.println("search by director request");
                         returnArray = movies.findMovieByDirector(messageArray[1]);
-                        output.println(returnArray.toString());
+                        if(returnArray == null)
+                        {
+                            returnMessage = "null";
+                        }
+                        else
+                        {
+                            returnMessage = returnArray.toString();
+                        }
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     case UPDATE:
@@ -145,7 +169,15 @@ public class Connection implements Runnable
                     case GET_WATCHED:
                         System.out.println("Get Watched Request");
                         returnArray = watched.GetAllWatchedMovies(messageArray[1]);
-                        output.println(returnArray.toString());
+                        if(returnArray == null)
+                        {
+                            returnMessage = "null";
+                        }
+                        else
+                        {
+                            returnMessage = returnArray.toString();
+                        }
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     default:
