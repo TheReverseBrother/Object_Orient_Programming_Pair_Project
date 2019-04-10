@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+
+
 public class Menus
 {
 
@@ -35,17 +37,7 @@ public class Menus
                 selected = true;
                 if(Client.isConnected())
                 {
-                    try{
-                    Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
-
-                    OutputStream out = dataSocket.getOutputStream();
-
-                    PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
-
-                    output.println("8££Exiting");
-                    output.flush();
-                }
-                    catch(Exception e){}
+                  Client.ClientServer.fetchString("8££Exiting");
                 }
                 else {System.out.println("Goodbye hope to see you later");}
 
@@ -61,16 +53,41 @@ public class Menus
             //Register
             else if (input.matches("[rR][eE][gG][iI][sS][tT][eE][rR]"))
             {
-                System.out.println("test");
                 selected = true;
+                registerMenu();
 
             }
             //default
             else
-                {
-                    System.out.println("invalid input please type a recognised command");
-                    System.out.println();
-                }
+            {
+                System.out.println("invalid input please type a recognised command");
+                System.out.println();
+            }
+
+        }
+    }
+
+    private static void registerMenu()
+    {
+        Scanner keyboard = new Scanner (System.in);
+
+        String Email;
+        String password;
+        String confirmEmali;
+        String confirmPassword;
+        boolean registered = false;
+
+        while (!registered)
+        {
+
+            System.out.println("Please enter the E-mail address that you would like to register your account to");
+            Email = keyboard.nextLine();
+            if (!Email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$") || Email.matches(".*?[£][£].*"))
+            {
+                System.out.println("please enter a valid E-mail");
+                Email = keyboard.nextLine();
+            }
+            System.out.println("please confirm that "+Email+" is the correct E-mail address");
 
         }
     }
@@ -83,15 +100,14 @@ public class Menus
         String password = "";
         String[] responseArray = null;
 
+        System.out.println("Please enter your E-mail");
+        Email = keyboard.nextLine();
 
+        System.out.println("please enter Password");
+        password = keyboard.nextLine();
 
         while (!loggedIn)
         {
-
-
-
-                System.out.println("Please enter your E-mail");
-                Email = keyboard.nextLine();
 
             // found regex online for email addresses @ http://www.regexlib.com/Search.aspx?k=email&c=-1&m=-1&ps=20 author Steven Smith the regex for the breaking characters is my own
             if (!Email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$") || Email.matches(".*?[£][£].*"))
@@ -100,62 +116,50 @@ public class Menus
                 loginMenu();
             }
 
-                System.out.println("please enter Password");
-                password = keyboard.nextLine();
-
+            String logInMessage = "1££"+Email+"££"+password;
 
             try
             {
-                String logInMessage = "1££"+Email+"££"+password;
-                Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
 
-                OutputStream out = dataSocket.getOutputStream();
-                InputStream in = dataSocket.getInputStream();
-
-                PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
-                Scanner input = new Scanner(new InputStreamReader(in));
-
-                output.println(logInMessage);
-                output.flush();
-                String response = input.nextLine();
+                String response =  Client.ClientServer.fetchString(logInMessage);
                 responseArray = response.split(MovieDBDetails.BREAKINGCHARACTERS);
 
 
-
-
-
-            if(responseArray[0].equals("true"))
+                if(responseArray[0].equals("true"))
                 {
                     loggedIn = true;
-                    break;
                 }
                 else
                 {
-
-                    System.out.println("E-mail or password incorrect");
-                        output.println("8££Exiting");
-                        output.flush();
-                        dataSocket.close();
+                    System.out.println("Invalid E-mail or password");
+                    System.out.println("Please enter your E-mail");
+                    Email = keyboard.nextLine();
+                    System.out.println("please enter Password");
+                    password = keyboard.nextLine();
                 }
-
-
-
-
-
             }
             catch (Exception e){}
 
 
         }
+
         applicationMenu(responseArray[1]);
+
 
     }
 
     private static void applicationMenu(String userID)
     {
+        boolean loggedIn = true;
         int user_ID = Integer.parseInt(userID);
+        Scanner keyboard = new Scanner(System.in);
 
 
+            System.out.println("Search Movie");
+            System.out.println("Edit Movies");
+            System.out.println("Get Watched Movies");
+            System.out.println("Add to Watched Movies");
+            System.out.println("Logout");
 
     }
 }
