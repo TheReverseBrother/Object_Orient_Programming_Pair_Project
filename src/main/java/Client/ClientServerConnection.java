@@ -38,6 +38,10 @@ public class ClientServerConnection
         output.println(message);
         output.flush();
         String respone = input.nextLine();
+        if (respone.equals("null"))
+        {
+            return null;
+        }
 
         JSONArray ja = new JSONArray(respone);
         return ja;
@@ -49,6 +53,10 @@ public class ClientServerConnection
         output.println(message);
         output.flush();
         String respone = input.nextLine();
+        if (respone.equals("null"))
+        {
+            return null;
+        }
         JSONObject returnMessage = new JSONObject(respone);
         return returnMessage;
     }
@@ -59,6 +67,10 @@ public class ClientServerConnection
         output.flush();
 
         String returnMessage = input.nextLine();
+        if (returnMessage.equals("null"))
+        {
+            return null;
+        }
         return returnMessage;
     }
 }
