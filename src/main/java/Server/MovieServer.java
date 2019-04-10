@@ -20,6 +20,7 @@ public class MovieServer
 
     public static void main(String[] args)
     {
+
         MovieServer server = new MovieServer(MovieDBDetails.SERVER_PORT, MovieDBDetails.maxConnections);
 
         server.setUpHandlers();
@@ -46,6 +47,7 @@ public class MovieServer
             Socket incomingConnection = null;
             while(true)
             {
+                System.out.println("Incoming :D");
                 incomingConnection = server.accept();
                 handleConnection(incomingConnection);
             }
