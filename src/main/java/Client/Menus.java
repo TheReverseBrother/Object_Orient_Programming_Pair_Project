@@ -16,7 +16,6 @@ public class Menus
     {
         boolean selected = false;
 
-
         while (!selected)
         {
 
@@ -93,7 +92,7 @@ public class Menus
                     Email = keyboard.nextLine();
                 }
 
-                System.out.println("please confirm that " + Email + " is the correct E-mail address Y for yes N for No");
+                System.out.println("please confirm that " + Email + " is the correct E-mail address Y for yes and any other key for no");
                 confirmEmail = keyboard.nextLine();
 
                 if (confirmEmail.equals("Y") || confirmEmail.equals("y"))
@@ -128,8 +127,19 @@ public class Menus
                 }
 
             }
-            Client.userDAO.registerUser(Email, password);
-            registered = true;
+           if(Client.userDAO.registerUser(Email, password)){registered = true;}
+           else {
+               System.out.println("Press y to continue to register or any other key to return to the main menu");
+               String selected = keyboard.nextLine();
+
+               if (!selected.equals("Y") && !selected.equals("y"))
+               {
+                   mainMenu();
+               }
+
+               hasEmail =false; hasPassword = false;}
+
+
         }
         mainMenu();
     }

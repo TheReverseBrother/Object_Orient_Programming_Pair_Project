@@ -1,6 +1,8 @@
 package DAOs;
 
+import Client.Client;
 import Exceptions.DAOException;
+import com.mysql.cj.jdbc.result.ResultSetFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -76,7 +78,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
     }
 
     @Override
-    public String registerUser(String Username, String Password)
+    public boolean registerUser(String Username, String Password)
     {
         Connection con = null;
         PreparedStatement ps = null;
@@ -84,13 +86,14 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String result = "";
         int userID = 0;
         String dbPassword = null;
+        boolean check = checkIfUserExists(Username);
 
-        if (checkIfUserExists(Username))
+        if (check)
         {
-            result = "User already registered with this email please try another";
-            return result;
+            System.out.println("User already registered with this email please try another");
+            return false;
         }
-        else
+        else if (!check)
         {
 
             try
@@ -101,13 +104,15 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
                 ps.setString(1, Username);
                 ps.setString(2, Password);
                 ps.executeUpdate();
-                result = "Registered Congratulations Login to Enjoy Features";
+                System.out.println("Registered Congratulations Login to Enjoy Features");
+                return true;
 
             }
             catch (SQLException e)
             {
-                result = "User already registered with this email please try another";
-                return result;
+
+                System.out.println("User already registered with this email please try another test");
+                return false;
             }
             finally
             {
@@ -128,15 +133,12 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
                 }
                 catch (SQLException e)
                 {
-                    result = "User already registered with this email please try another";
-                    return result;
 
                 }
             }
 
-
-            return result;
         }
+        return false;
     }
 
     public Boolean checkIfUserExists(String username)
@@ -144,6 +146,8 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        boolean check = false;
+        int rowCount = 0;
         try
         {
             con = this.getConnection();
@@ -152,8 +156,16 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
             ps.setString(1, username);
             rs = ps.executeQuery();
 
-            System.out.println("RS" + rs);
-            return rs.getFetchSize() == 1;
+
+            while(rs.next())
+            {
+                rowCount++; //or rs.getString("column name");
+            }
+
+
+            if(rs.next()){rowCount =1 ;}
+
+
         }
         catch (SQLException e)
         {
@@ -178,10 +190,10 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
             }
             catch (SQLException e)
             {
-
+                System.out.println("test");
             }
         }
-
-        return false;
+        if(rowCount == 1){check = true;}
+        return check;
     }
 }
