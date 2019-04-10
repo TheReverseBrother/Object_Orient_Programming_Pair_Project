@@ -4,10 +4,7 @@ import Exceptions.DAOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
 {
@@ -109,8 +106,8 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
             }
             catch (SQLException e)
             {
-                System.out.println("SQL");
-                e.printStackTrace();
+                result = "User already registered with this email please try another";
+                return result;
             }
             finally
             {
@@ -131,6 +128,8 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
                 }
                 catch (SQLException e)
                 {
+                    result = "User already registered with this email please try another";
+                    return result;
 
                 }
             }
@@ -154,7 +153,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
             rs = ps.executeQuery();
 
             System.out.println("RS" + rs);
-            return rs.next();
+            return rs.getFetchSize() == 1;
         }
         catch (SQLException e)
         {
