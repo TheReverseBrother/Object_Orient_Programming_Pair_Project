@@ -26,7 +26,7 @@ public class TestClient
 //            String message = "0££TomasSMith@gmail.com££MRMEESEEKS";
             String message = "2££Robert Downey Jr";
             boolean continueR = true;
-//                while(continueR)
+//                while(continueR)*
 //                {
                     output.println(message);
                     output.flush();

@@ -1,5 +1,9 @@
 package Client;
 
+import CoreDetails.MovieDBDetails;
+
+import java.io.*;
+import java.net.Socket;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -23,20 +27,34 @@ public class Menus
             String input = keyboard.nextLine();
 
 
+
+            // Quit
+
             if (input.matches("[Qq][uU][iI][tT]"))
             {
                 selected = true;
                 if(Client.isConnected())
                 {
-                    System.out.println("TODO Send sever disconnect request");
-                    Client.setConnectionToFalse();
+                    try{
+                    Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
+
+                    OutputStream out = dataSocket.getOutputStream();
+
+                    PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
+
+                    output.println("8££Exiting");
+                    output.flush();
+                }
+                    catch(Exception e){}
                 }
                 else {System.out.println("Goodbye hope to see you later");}
 
             }
+
+            //Login
             else if (input.matches("[lL][oO][gG][iI][nN]"))
             {
-                System.out.println("test");
+                loginMenu();
                 selected = true;
 
             }
@@ -47,7 +65,7 @@ public class Menus
                 selected = true;
 
             }
-
+            //default
             else
                 {
                     System.out.println("invalid input please type a recognised command");
@@ -55,5 +73,92 @@ public class Menus
                 }
 
         }
+    }
+
+    private static void loginMenu()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        boolean loggedIn = false;
+        String Email = "";
+        String password = "";
+
+
+
+        while (!loggedIn)
+        {
+
+
+
+                System.out.println("Please enter your E-mail");
+                Email = keyboard.nextLine();
+
+            // found regex online for email addresses @ http://www.regexlib.com/Search.aspx?k=email&c=-1&m=-1&ps=20 author Steven Smith the regex for the breaking characters is my own
+            if (!Email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$") || Email.matches(".*?[£][£].*"))
+            {
+                System.out.println("invalid E-mail format please enter a valid email");
+                loginMenu();
+            }
+
+                System.out.println("please enter Password");
+                password = keyboard.nextLine();
+
+
+            try
+            {
+                String logInMessage = "1££"+Email+"££"+password;
+                Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
+
+                OutputStream out = dataSocket.getOutputStream();
+                InputStream in = dataSocket.getInputStream();
+
+                PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
+                Scanner input = new Scanner(new InputStreamReader(in));
+
+                output.println(logInMessage);
+                output.flush();
+                String response = input.nextLine();
+
+
+                if(response.equals("true££1"))
+                {
+                    loggedIn = true;
+                    applicationMenu();
+                }
+                else if(response.equals("false££Invalid Username And Password")){
+
+                    System.out.println("E-mail or password incorrect");
+                    loginMenu();
+                }
+
+            }
+            catch (Exception e)
+            {
+
+
+            }
+
+
+
+
+
+
+        }
+
+    }
+
+    private static void applicationMenu()
+    {
+        try{
+            Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
+
+            OutputStream out = dataSocket.getOutputStream();
+
+            PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
+
+            output.println("8££Exiting");
+            output.flush();
+        }
+        catch(Exception e){}
+
     }
 }

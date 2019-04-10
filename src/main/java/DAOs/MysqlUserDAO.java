@@ -19,7 +19,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         ResultSet rs = null;
         String result = null;
         int userID = 0;
-        String dbPassword = null;
+        String dbPassword = "";
         try
         {
             System.out.println("HOOO"+username);
@@ -37,6 +37,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
                 System.out.println(dbPassword);
                 System.out.println("Passed: "+Password);
             }
+
             if(dbPassword.equals(Password))
             {
                 result = "true££"+userID;
