@@ -81,6 +81,7 @@ public class Menus
         boolean loggedIn = false;
         String Email = "";
         String password = "";
+        String[] responseArray = null;
 
 
 
@@ -117,11 +118,13 @@ public class Menus
                 output.println(logInMessage);
                 output.flush();
                 String response = input.nextLine();
+                responseArray = response.split(MovieDBDetails.BREAKINGCHARACTERS);
 
 
 
 
-            if(response.equals("true££1"))
+
+            if(responseArray[0].equals("true"))
                 {
                     loggedIn = true;
                     break;
@@ -144,12 +147,15 @@ public class Menus
 
 
         }
-        applicationMenu();
+        applicationMenu(responseArray[1]);
 
     }
 
-    private static void applicationMenu()
+    private static void applicationMenu(String userID)
     {
-        System.out.println("success");
+        int user_ID = Integer.parseInt(userID);
+
+
+
     }
 }

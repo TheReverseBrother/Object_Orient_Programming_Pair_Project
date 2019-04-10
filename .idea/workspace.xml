@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21da94c0-8b2f-4f12-ba73-3de0001f2848" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Enums.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Client/Menus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Menus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Client/ClientServerConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/ClientServerConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Client/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/Menus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Client/TestClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/TestClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/Connection$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Connection$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Connection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CoreDetails/MovieDBDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CoreDetails/MovieDBDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DAOs/MysqlUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DAOs/MysqlUserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MothballedCode/MovieDBServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Server/MovieServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/MovieServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/ServerOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/ServerOptions.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,14 +20,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.638448">
+    <splitter split-orientation="horizontal" split-proportion="0.43474427">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Client/Enums.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="221">
-                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+                  <caret line="13" selection-start-line="13" selection-end-line="13" />
                 </state>
               </provider>
             </entry>
@@ -40,8 +35,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="245">
+                  <caret line="145" column="14" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="14" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -53,13 +48,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+                <state relative-caret-position="238">
+                  <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
                   <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#86#87#0" expanded="true" />
+                    <element signature="e#118#119#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -68,56 +64,40 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java">
-              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="272">
-                  <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+                  <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Server/ServerOptions.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="101" selection-start-line="2" selection-start-column="101" selection-end-line="2" selection-end-column="101" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1019">
-                  <caret line="735" column="10" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/USERMANUEL.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-463">
-                  <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
-                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                  <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
                   <folding>
-                    <element signature="e#86#87#0" expanded="true" />
-                    <element signature="e#118#119#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Server/Connection.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="122">
+                  <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Server/MovieServer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="466">
+                  <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -155,7 +135,6 @@
         <option value="$PROJECT_DIR$/src/main/java/DAOs/MysqlMovieDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/DAOs/UserDAOInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/CoreDetails/MovieDBDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/DAOs/WatchedDAOInterface.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/DAOs/WatchedDAO.java" />
@@ -166,6 +145,7 @@
         <option value="$PROJECT_DIR$/USERMANUEL.txt" />
         <option value="$PROJECT_DIR$/src/main/java/MothballedCode/MovieDBServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Client/Menus.java" />
       </list>
     </option>
@@ -177,9 +157,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="246" />
-    <option name="y" value="-25" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="305" />
+    <option name="y" value="445" />
     <option name="width" value="979" />
     <option name="height" value="788" />
   </component>
@@ -229,6 +209,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="DAOs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TACA4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tomas_aaronooca" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -238,13 +226,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554839556288" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554888085565" />
     <property name="last.edited.regexp" value="Quit" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tomas_AaronW" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1484375" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -305,8 +293,10 @@
       </method>
     </configuration>
     <configuration name="MovieServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Server.MovieServer" />
-      <module name="Tomas_AaronOOCA" />
+      <module name="tomas_aaronooca" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="MothballedCode.*" />
@@ -340,9 +330,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.MovieServer" />
         <item itemvalue="Application.Menus" />
         <item itemvalue="Application.TestClient" />
-        <item itemvalue="Application.MovieServer" />
         <item itemvalue="Application.MovieDBServer" />
       </list>
     </recent_temporary>
@@ -370,11 +360,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="305" y="445" width="979" height="788" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Image Layers" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14220877" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.20457019" />
       <window_info id="DB Browser" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Project Explorer" order="5" />
@@ -382,9 +373,10 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Job Explorer" order="8" />
       <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32872504" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31950846" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31950846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -417,17 +409,17 @@
       <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32104453" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31950846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Console" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32872504" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32718894" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -510,7 +502,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1019">
-          <caret line="735" column="10" selection-start-line="735" selection-start-column="10" selection-end-line="735" selection-end-column="10" />
+          <caret line="732" column="10" selection-start-line="732" selection-start-column="10" selection-end-line="732" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -549,13 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -567,25 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2159">
           <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Server/MovieServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1652#1653#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Server/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -606,41 +572,68 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Client/Enums.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/USERMANUEL.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-463">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server/MovieServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+        <state relative-caret-position="466">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/TestClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DAOs/MysqlUserDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="81" column="13" lean-forward="true" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding>
             <element signature="e#86#87#0" expanded="true" />
             <element signature="e#118#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Client/Menus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="145" column="14" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -697,7 +690,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Tomas_AaronOOCA</last-edited>
+          <last-edited>tomas_aaronooca</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
