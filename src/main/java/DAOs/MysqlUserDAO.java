@@ -22,54 +22,56 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String dbPassword = "";
         try
         {
-            System.out.println("HOOO"+username);
+            System.out.println("HOOO" + username);
             con = this.getConnection();
             String query = "SELECT * FROM USERS WHERE EMAIL=?";
             ps = con.prepareStatement(query);
-            ps.setString(1,username);
+            ps.setString(1, username);
             rs = ps.executeQuery();
 
-            while(rs.next())
+            while (rs.next())
             {
                 userID = rs.getInt("UserID");
-                System.out.println("In RS"+ userID);
+                System.out.println("In RS" + userID);
                 dbPassword = rs.getString("Password");
                 System.out.println(dbPassword);
-                System.out.println("Passed: "+Password);
+                System.out.println("Passed: " + Password);
             }
 
 
-            if(dbPassword.equals(Password))
+            if (dbPassword.equals(Password))
             {
-                result = "true££"+userID;
+                result = "true££" + userID;
             }
             else
             {
                 result = "false££Invalid Username And Password";
             }
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
             throw new DAOException("findAllUsers() " + e.getMessage());
         }
-        finally {
-            try{
-                if(rs !=null)
+        finally
+        {
+            try
+            {
+                if (rs != null)
                 {
                     rs.close();
                 }
-                if(ps != null)
+                if (ps != null)
                 {
                     ps.close();
                 }
-                if( con != null)
+                if (con != null)
                 {
                     this.freeConnection(con);
                 }
             }
-            catch(SQLException e)
+            catch (SQLException e)
             {
-                throw new DAOException("findAllUsers() "+ e.getMessage());
+                throw new DAOException("findAllUsers() " + e.getMessage());
             }
         }
 
@@ -85,44 +87,57 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String result = "";
         int userID = 0;
         String dbPassword = null;
-        try
-        {
-            con = this.getConnection();
-            String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
-            ps = con.prepareStatement(query);
-            ps.setString(1,Username);
-            ps.setString(2,Password);
-            ps.executeUpdate();
-            result = "Registered Congratulations Login to Enjoy Features";
 
-        }
-        catch(SQLException e)
+        if (checkIfUserExists(Username))
         {
-            System.out.println("SQL");
-            e.printStackTrace();
+            result = "User already registered with this email please try another";
+            return result;
         }
-        finally {
-            try{
-                if(rs !=null)
-                {
-                    rs.close();
-                }
-                if(ps != null)
-                {
-                    ps.close();
-                }
-                if( con != null)
-                {
-                    this.freeConnection(con);
-                }
-            }
-            catch(SQLException e)
+        else
+        {
+
+            try
             {
+                con = this.getConnection();
+                String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
+                ps = con.prepareStatement(query);
+                ps.setString(1, Username);
+                ps.setString(2, Password);
+                ps.executeUpdate();
+                result = "Registered Congratulations Login to Enjoy Features";
 
             }
-        }
+            catch (SQLException e)
+            {
+                System.out.println("SQL");
+                e.printStackTrace();
+            }
+            finally
+            {
+                try
+                {
+                    if (rs != null)
+                    {
+                        rs.close();
+                    }
+                    if (ps != null)
+                    {
+                        ps.close();
+                    }
+                    if (con != null)
+                    {
+                        this.freeConnection(con);
+                    }
+                }
+                catch (SQLException e)
+                {
 
-        return result;
+                }
+            }
+
+
+            return result;
+        }
     }
 
     public Boolean checkIfUserExists(String username)
@@ -135,39 +150,34 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
             con = this.getConnection();
             String query = "SELECT * FROM USERS WHERE EMAIL=?";
             ps = con.prepareStatement(query);
-            ps.setString(1,username);
+            ps.setString(1, username);
             rs = ps.executeQuery();
 
-            System.out.println("RS" +rs);
-            if(rs.next())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            System.out.println("RS" + rs);
+            return rs.next();
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
 
         }
-        finally {
-            try{
-                if(rs !=null)
+        finally
+        {
+            try
+            {
+                if (rs != null)
                 {
                     rs.close();
                 }
-                if(ps != null)
+                if (ps != null)
                 {
                     ps.close();
                 }
-                if( con != null)
+                if (con != null)
                 {
                     this.freeConnection(con);
                 }
             }
-            catch(SQLException e)
+            catch (SQLException e)
             {
 
             }
