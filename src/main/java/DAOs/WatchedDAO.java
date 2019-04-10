@@ -29,6 +29,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             rs = ps.executeQuery();
             if(rs.next())
             {
+                rs.beforeFirst();
                 while(rs.next())
                 {
                     String title   = rs.getString("MovieTitle");

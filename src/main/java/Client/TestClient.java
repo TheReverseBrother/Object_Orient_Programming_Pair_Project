@@ -33,7 +33,7 @@ public class TestClient
                     String respone = input.nextLine();
 //                    System.out.println(respone);
                     JSONArray ja = new JSONArray(respone);
-                    System.out.println(ja);
+                    System.out.println(ja.length());
 
 //                }
 

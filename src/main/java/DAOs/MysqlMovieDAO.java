@@ -29,6 +29,8 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             rs = ps.executeQuery();
             if(rs.next())
             {
+                rs.beforeFirst();
+
                 while(rs.next())
                 {
                     int movieID         = rs.getInt("ID");
@@ -203,6 +205,8 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             rs = ps.executeQuery();
             if(rs.next())
             {
+                rs.beforeFirst();
+
                 while(rs.next())
                 {
                     int movieID = rs.getInt("ID");
@@ -295,6 +299,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             rs = ps.executeQuery();
             if(rs.next())
             {
+                rs.beforeFirst();
                 while(rs.next())
                 {
                     int movieID = rs.getInt("ID");
