@@ -119,46 +119,37 @@ public class Menus
                 String response = input.nextLine();
 
 
-                if(response.equals("true££1"))
+
+
+            if(response.equals("true££1"))
                 {
                     loggedIn = true;
-                    applicationMenu();
+                    break;
                 }
-                else if(response.equals("false££Invalid Username And Password")){
+                else
+                {
 
                     System.out.println("E-mail or password incorrect");
-                    loginMenu();
+                        output.println("8££Exiting");
+                        output.flush();
+                        dataSocket.close();
                 }
 
+
+
+
+
             }
-            catch (Exception e)
-            {
-
-
-            }
-
-
-
-
+            catch (Exception e){}
 
 
         }
+        applicationMenu();
 
     }
 
     private static void applicationMenu()
     {
-        try{
-            Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
-
-            OutputStream out = dataSocket.getOutputStream();
-
-            PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
-
-            output.println("8££Exiting");
-            output.flush();
-        }
-        catch(Exception e){}
-
+        System.out.println("success");
     }
 }
