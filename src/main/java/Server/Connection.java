@@ -128,7 +128,7 @@ public class Connection implements Runnable
                         {
                             returnMessage = returnObject.toString();
                         }
-                        output.println(returnObject.toString());
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     case SEARCHBYDIRECTOR:
@@ -165,6 +165,7 @@ public class Connection implements Runnable
                         output.flush();
                         break;
                     case QUIT:
+                        System.out.println("QUITTING");
                         connected = false;
                         break;
                     case GET_WATCHED:
@@ -184,8 +185,9 @@ public class Connection implements Runnable
                     default:
                         System.out.println("Invalid Input.");
                 }
-                System.out.println("Here");
+                System.out.println("End OF Switch");
             }
+            System.out.println("Outside While");
             output.close();
             out.close();
             in.close();
@@ -224,5 +226,10 @@ public class Connection implements Runnable
         {
             return "true££"+watched.AddtoWatched(user,movie,title);
         }
+    }
+
+    public String recommedMovie()
+    {
+        return null;
     }
 }
