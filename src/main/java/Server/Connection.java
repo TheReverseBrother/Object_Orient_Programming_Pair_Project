@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Connection implements Runnable
@@ -78,6 +79,7 @@ public class Connection implements Runnable
             String incomingMessage = "";
             JSONObject returnObject = null;
             JSONArray returnArray = null;
+            System.out.println("Started Connection");
             while(connected)
             {
                 incomingMessage = input.nextLine();
@@ -127,7 +129,7 @@ public class Connection implements Runnable
                         {
                             returnMessage = returnObject.toString();
                         }
-                        output.println(returnObject.toString());
+                        output.println(returnMessage);
                         output.flush();
                         break;
                     case SEARCHBYDIRECTOR:
@@ -164,6 +166,7 @@ public class Connection implements Runnable
                         output.flush();
                         break;
                     case QUIT:
+                        System.out.println("QUITTING");
                         connected = false;
                         break;
                     case GET_WATCHED:
@@ -183,8 +186,9 @@ public class Connection implements Runnable
                     default:
                         System.out.println("Invalid Input.");
                 }
-                System.out.println("Here");
+                System.out.println("End OF Switch");
             }
+            System.out.println("Outside While");
             output.close();
             out.close();
             in.close();
@@ -223,5 +227,26 @@ public class Connection implements Runnable
         {
             return "true££"+watched.AddtoWatched(user,movie,title);
         }
+    }
+
+    public String recommedMovie(String user)
+    {
+        JSONArray WatchedList = watched.GetAllWatchedMovies(user);
+        Random rand = new Random();
+        int i = rand.nextInt(WatchedList.length());
+        JSONObject movie = WatchedList.getJSONObject(i);
+        String genre = movie.get("genre").toString();
+
+        String[] genres = genre.split(",");
+        if(genres.length > 1)
+        {
+            int j = rand.nextInt(genres.length);
+            int k = rand.nextInt(genres.length);
+        }
+        else
+        {
+
+        }
+        return null;
     }
 }

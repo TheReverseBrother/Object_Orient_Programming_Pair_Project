@@ -138,10 +138,10 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
                 String barcode      = rs.getString("Barcode");
                 String user_rating  = rs.getString("User_Rating");
 
-                movie.put("movieID    ",""+movieID);
-                movie.put("title      ",""+title);
-                movie.put("genre      ",""+genre);
-                movie.put("director   ",""+director);
+                movie.put("movieID",""+movieID);
+                movie.put("title",""+title);
+                movie.put("genre",""+genre);
+                movie.put("director",""+director);
                 movie.put("runtime    ",""+runtime);
                 movie.put("plot       ",""+plot);
                 movie.put("location   ",""+location);
@@ -421,5 +421,58 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             }
         }
         return null;
+    }
+
+    @Override
+    public String getGenres(String title)
+    {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String genre = null;
+        try
+        {
+            con = this.getConnection();
+            String query = "SELECT genre FROM MOVIES WHERE TITLE = ?";
+            ps = con.prepareStatement(query);
+            ps.setString(1,title);
+            //User the prepared statement to execute SQL
+            rs = ps.executeQuery();
+            if(rs.next())
+            {
+                rs.first();
+                genre = rs.getString("genre");
+                return genre;
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch(SQLException e)
+        {
+
+        }
+        finally {
+            try{
+                if(rs !=null)
+                {
+                    rs.close();
+                }
+                if(ps != null)
+                {
+                    ps.close();
+                }
+                if( con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch(SQLException e)
+            {
+            }
+        }
+        return genre;
     }
 }

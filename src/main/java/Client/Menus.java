@@ -3,6 +3,7 @@ package Client;
 import CoreDetails.MovieDBDetails;
 import Exceptions.DAOException;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Scanner;
 
@@ -13,14 +14,6 @@ public class Menus
 
     public static void mainMenu()
     {
-
-
-        try
-        {
-            JSONArray test = Client.movieDAO.findMovieByActor("Robert Downey Jr");
-            Client.formatJSONMovie(test);
-        }
-        catch (DAOException e){}
         boolean selected = false;
 
         while (!selected)
@@ -36,29 +29,24 @@ public class Menus
 
             // Quit
 
-            if (selectionInput.matches("[Qq][uU][iI][tT]"))
+            if (selectionInput.matches("^[Qq][uU][iI][tT]"))
             {
                 selected = true;
-                if (Client.isConnected())
-                {
-                    Client.ClientServer.fetchString("8££Exiting");
-                }
-                else
-                {
-                    System.out.println("Goodbye hope to see you later");
-                }
+                Client.ClientServer.closeConnection("8££Exiting");
+                System.out.println("Goodbye Thank you for coming");
+
 
             }
 
             //Login
-            else if (selectionInput.matches("[lL][oO][gG][iI][nN]"))
+            else if (selectionInput.matches("^[lL][oO][gG][iI][nN]"))
             {
                 loginMenu();
                 selected = true;
 
             }
             //Register
-            else if (selectionInput.matches("[rR][eE][gG][iI][sS][tT][eE][rR]"))
+            else if (selectionInput.matches("^[rR][eE][gG][iI][sS][tT][eE][rR]"))
             {
                 selected = true;
                 registerMenu();
@@ -85,6 +73,7 @@ public class Menus
         boolean registered = false;
         boolean hasEmail = false;
         boolean hasPassword = false;
+        String responseArray[]=null;
 
         while (!registered)
         {
@@ -134,20 +123,26 @@ public class Menus
                 }
 
             }
-           if(Client.userDAO.registerUser(Email, password)){registered = true;}
-           else {
-               System.out.println("Press y to continue to register or any other key to return to the main menu");
-               String selected = keyboard.nextLine();
 
-               if (!selected.equals("Y") && !selected.equals("y"))
-               {
-                   mainMenu();
-               }
+            responseArray = Client.ClientServer.fetchString("0££" + Email + "££" + password).split(MovieDBDetails.BREAKINGCHARACTERS);
 
-               hasEmail =false; hasPassword = false;}
+            if (responseArray[0].equals("true")) {System.out.println(responseArray[1]); registered = true;}
+            else
+            {
+                System.out.println("Account already ");
+                System.out.println("Press y to continue to register or any other key to return to the main menu");
+                String selected = keyboard.nextLine();
 
+                if (!selected.equals("Y") && !selected.equals("y"))
+                {
+                    mainMenu();
+                }
 
+                hasEmail = false;
+                hasPassword = false;
+            }
         }
+
         mainMenu();
     }
 
@@ -238,19 +233,19 @@ public class Menus
             else if (selectionInput.matches("^[Ee][Dd][Ii][Tt]?[ ]*\\w*"))
             {
                 selected = true;
-                Client.editMovie(user_ID);
+
 
             }
             else if (selectionInput.matches("^[Gg][Ee][Tt][Tt]?[ ]*\\w*") || selectionInput.matches("^[Ww][Aa][Tt][Cc][Hh][Ee][Dd]?[ ]*\\w*"))
             {
                 selected = true;
-                Client.getWatchedMovies(user_ID);
+
 
             }
             else if (selectionInput.matches("^[Aa][Dd][Dd]?[ ]*\\w*"))
             {
                 selected = true;
-                Client.addMovieToWatched(user_ID);
+
             }
             else if (selectionInput.matches("^[Ll][Oo][Gg][Oo][Uu][Tt]"))
             {
@@ -267,5 +262,64 @@ public class Menus
 
     private static void searchMenu(int user_ID)
     {
+        boolean selected = false;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Search By");
+        System.out.println("Actor");
+        System.out.println("Director");
+        System.out.println("Title");
+        
+        while (!selected)
+        {
+            String selectionInput = keyboard.nextLine();
+            
+            if(selectionInput.matches("^[Aa][Cc][Tt][Oo][Rr]"))
+            {
+                selected = true;
+                searchByActor();
+            }
+            else if(selectionInput.matches("^[Dd][Ii][Rr][Ee][Cc][Tt][Oo][Rr]"))
+            {
+                selected = true;
+                searchByDirector();
+            }
+            else if(selectionInput.matches("^[Tt][Ii][Tt][Ll][Ee]"))
+            {
+                selected = true;
+                searchByTitle();
+
+            }
+            else
+            {
+                System.out.println("Invalid command Please input valid command");
+            }
+        }
+    }
+
+    private static void searchByTitle()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter Movie Title");
+        String title = keyboard.nextLine();
+
+        JSONObject movie = Client.ClientServer.fetchObject("3££"+title);
+        JSONArray mArray = new JSONArray("[]");
+        mArray.put(movie);
+        System.out.println(movie);
+        System.out.println(mArray);
+
+        Client.formatJSONMovie(mArray);
+
+
+    }
+
+    private static void searchByDirector()
+    {
+    }
+
+    private static void searchByActor()
+    {
+
+
     }
 }
