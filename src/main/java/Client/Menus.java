@@ -13,14 +13,6 @@ public class Menus
 
     public static void mainMenu()
     {
-
-
-        try
-        {
-            JSONArray test = Client.movieDAO.findMovieByActor("Robert Downey Jr");
-            Client.formatJSONMovie(test);
-        }
-        catch (DAOException e){}
         boolean selected = false;
 
         while (!selected)
@@ -134,8 +126,9 @@ public class Menus
                 }
 
             }
-           if(Client.userDAO.registerUser(Email, password)){registered = true;}
-           else {
+
+            System.out.println(Client.ClientServer.fetchString("0££"+Email+"££"+password));
+
                System.out.println("Press y to continue to register or any other key to return to the main menu");
                String selected = keyboard.nextLine();
 
@@ -147,7 +140,6 @@ public class Menus
                hasEmail =false; hasPassword = false;}
 
 
-        }
         mainMenu();
     }
 
