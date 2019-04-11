@@ -1,5 +1,10 @@
 package Client;
+import DAOs.MysqlMovieDAO;
 import DAOs.MysqlUserDAO;
+import Exceptions.DAOException;
+import com.mysql.cj.xdevapi.JsonArray;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Client
 {
@@ -10,6 +15,7 @@ public class Client
     public static  ClientServerConnection ClientServer = new ClientServerConnection();
     public static int USERID = -1;
     public  static MysqlUserDAO userDAO = new MysqlUserDAO();
+    public static MysqlMovieDAO movieDAO = new MysqlMovieDAO();
 
     public static void main(String[] args)
     {
@@ -23,5 +29,36 @@ public class Client
     }
 
     public static void addMovieToWatched(int user_ID) {
+    }
+
+    public static String formatJSONMovie(JSONArray array)
+    {
+        JSONObject test;
+        String obj;
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.format("%60s%60s%60s%60s", "Title", "Genre", "Rating", "Director");
+        System.out.println();
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        for(int i =0; i<array.length(); i++)
+        {
+
+            test = array.getJSONObject(i);
+
+            System.out.format("%60s%60s%60s%60s", "\""+test.get("title")+"\"", "\""+test.get("genre")+"\"", "\""+test.get("user_rating")+"\",","\""+test.get("director")+"\"");
+            System.out.println();
+
+
+//            System.out.println(test);
+//            System.out.println();
+
+
+        }
+
+
+
+
+
+
+        return "";
     }
 }

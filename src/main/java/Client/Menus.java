@@ -1,11 +1,10 @@
 package Client;
 
 import CoreDetails.MovieDBDetails;
+import Exceptions.DAOException;
+import org.json.JSONArray;
 
-import java.io.*;
-import java.net.Socket;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 
 public class Menus
@@ -14,6 +13,14 @@ public class Menus
 
     public static void mainMenu()
     {
+
+
+        try
+        {
+            JSONArray test = Client.movieDAO.findMovieByActor("Robert Downey Jr");
+            Client.formatJSONMovie(test);
+        }
+        catch (DAOException e){}
         boolean selected = false;
 
         while (!selected)

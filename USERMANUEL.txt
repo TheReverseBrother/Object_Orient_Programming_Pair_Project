@@ -3,15 +3,15 @@ protocol reads like this you can figure out what it will send back
 
 Our Breaking Characters= '££';
 Each message sent starts with a number here is what they correspond to:
-0: REGISTER
-1: LOGIN
+0: REGISTER         ***
+1: LOGIN            ***
 2: SEARCHBYACTOR
 3: SEARCHBYTITLE
 4: SEARCHBYDIRECTOR
 5: UPDATE
 6: ADD TO WATCHED
 7: RECOMMEND
-8: QUIT
+8: QUIT             ***
 9: GET WATCHED
 
 REGISTER:
