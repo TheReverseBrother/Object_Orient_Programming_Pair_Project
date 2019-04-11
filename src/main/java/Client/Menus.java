@@ -295,7 +295,8 @@ public class Menus
             if(selectionInput.matches("^[Bb][Aa][Cc][Kk]$"))
             {
                 selected = true;
-                searchByActor(user_ID);
+                String userID = ""+user_ID;
+                applicationMenu(userID);
             }
             else
             {
@@ -313,9 +314,15 @@ public class Menus
         JSONObject movie = Client.ClientServer.fetchObject("3££"+title);
         JSONArray mArray = new JSONArray("[]");
         mArray.put(movie);
-        Client.formatJSONMovie(mArray);
-        searchMenu(user_ID);
-
+        if (movie == null){
+            System.out.println("Movie not found");
+            searchMenu(user_ID);
+        }
+        else
+        {
+            Client.formatJSONMovie(mArray);
+            searchMenu(user_ID);
+        }
 
     }
 
@@ -326,8 +333,15 @@ public class Menus
         String director = keyboard.nextLine();
 
         JSONArray mArray = Client.ClientServer.FetchingArray("4££"+director);
-        Client.formatJSONMovie(mArray);
-        searchMenu(user_ID);
+        if (mArray == null){
+            System.out.println("Movie not found");
+            searchMenu(user_ID);
+        }
+        else
+        {
+            Client.formatJSONMovie(mArray);
+            searchMenu(user_ID);
+        }
     }
 
     private static void searchByActor(int user_ID)
@@ -337,9 +351,14 @@ public class Menus
         String actor = keyboard.nextLine();
 
         JSONArray mArray = Client.ClientServer.FetchingArray("2££"+actor);
-        Client.formatJSONMovie(mArray);
-        searchMenu(user_ID);
-
-
+        if (mArray == null){
+            System.out.println("Movie not found");
+            searchMenu(user_ID);
+        }
+        else
+        {
+            Client.formatJSONMovie(mArray);
+            searchMenu(user_ID);
+        }
     }
 }
