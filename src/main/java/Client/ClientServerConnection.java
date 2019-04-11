@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class ClientServerConnection
@@ -15,6 +16,8 @@ public class ClientServerConnection
     private PrintWriter output = null;
     private InputStream in = null;
     private Scanner input = null;
+    private HashMap<String, String> cache = new HashMap<>();
+
     public ClientServerConnection()
     {
         try
@@ -35,30 +38,52 @@ public class ClientServerConnection
 
     public JSONArray FetchingArray(String message)
     {
-        output.println(message);
-        output.flush();
-        String respone = input.nextLine();
-        if (respone.equals("null"))
+        if(cache.containsKey(message))
         {
-            return null;
+            String cacheString = cache.get(message);
+            JSONArray cached = new JSONArray(cacheString);
+            return cached;
         }
+        else
+        {
+            output.println(message);
+            output.flush();
+            String response = input.nextLine();
 
-        JSONArray ja = new JSONArray(respone);
-        return ja;
+            if (response.equals("null"))
+            {
+                response = null;
+            }
 
+            cache.put(message,response);
+            JSONArray ja = new JSONArray(response);
+            return ja;
+        }
     }
 
     public JSONObject fetchObject(String message)
     {
-        output.println(message);
-        output.flush();
-        String respone = input.nextLine();
-        if (respone.equals("null"))
+        if(cache.containsKey(message))
         {
-            return null;
+            String cacheString = cache.get(message);
+            JSONObject cached = new JSONObject(cacheString);
+            return cached;
         }
-        JSONObject returnMessage = new JSONObject(respone);
-        return returnMessage;
+        else
+        {
+            output.println(message);
+            output.flush();
+            String response = input.nextLine();
+
+            if (response.equals("null"))
+            {
+                response = null;
+            }
+
+            cache.put(message,response);
+            JSONObject ja = new JSONObject(response);
+            return ja;
+        }
     }
 
     public String fetchString(String message)
@@ -72,6 +97,11 @@ public class ClientServerConnection
             return null;
         }
         return returnMessage;
+    }
+
+    public void Updated()
+    {
+        cache.clear();
     }
 
     public void closeConnection(String message)
