@@ -36,7 +36,7 @@ public class Client
         JSONObject test;
         String obj;
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.format("%60s%60s%60s%60s", "Title", "Genre", "Rating", "Director");
+        System.out.format("%40s%60s%20s%30s%60s", "Title", "Genre", "Rating", "Director","Starring");
         System.out.println();
         System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for(int i =0; i<array.length(); i++)
@@ -44,7 +44,7 @@ public class Client
 
             test = array.getJSONObject(i);
 
-            System.out.format("%60s%60s%60s%60s", "\""+test.get("title")+"\"", "\""+test.get("genre")+"\"", "\""+test.get("user_rating")+"\",","\""+test.get("director")+"\"");
+            System.out.format("%40s%60s%20s%30s%80s", "\""+test.get("title")+"\"",test.get("genre"),test.get("user_rating"),test.get("director"),test.get("starring"));
             System.out.println();
 
 
@@ -53,6 +53,7 @@ public class Client
 
 
         }
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
 
