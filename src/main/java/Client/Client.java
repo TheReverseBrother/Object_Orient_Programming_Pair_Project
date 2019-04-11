@@ -20,7 +20,7 @@ public class Client
 
     public static void formatJSONMovie(JSONArray array)
     {
-        JSONObject test;
+        JSONObject obj;
         System.out.println("████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████");
 
         System.out.format("█"+"%40s%60s%20s%30s%60s%20s", "Title", "Genre", "Rating", "Director", "Starring","█");
@@ -30,9 +30,8 @@ public class Client
         for (int i = 0; i < array.length(); i++)
         {
 
-            test = array.getJSONObject(i);
-
-            System.out.format("█"+"%40s%60s%20s%30s%78s%2s", "\"" + test.get("title") + "\"", test.get("genre"), test.get("user_rating"), test.get("director"), test.get("starring"),"█");
+            obj = array.getJSONObject(i);
+            System.out.format("█"+"%40s%60s%20s%30s%78s%2s", "\"" + obj.get("title") + "\"", obj.get("genre"), obj.get("user_rating"), obj.get("director"), obj.get("starring"),"█");
             System.out.println();
 
         }

@@ -16,6 +16,7 @@ public class Menus
     {
         boolean selected = false;
 
+
         while (!selected)
         {
 
@@ -268,6 +269,7 @@ public class Menus
         System.out.println("Actor");
         System.out.println("Director");
         System.out.println("Title");
+        System.out.println("Type 'Back' to return to the main menu");
         
         while (!selected)
         {
@@ -276,18 +278,24 @@ public class Menus
             if(selectionInput.matches("^[Aa][Cc][Tt][Oo][Rr]"))
             {
                 selected = true;
-                searchByActor();
+                searchByActor(user_ID);
             }
             else if(selectionInput.matches("^[Dd][Ii][Rr][Ee][Cc][Tt][Oo][Rr]"))
             {
                 selected = true;
-                searchByDirector();
+                searchByDirector(user_ID);
             }
             else if(selectionInput.matches("^[Tt][Ii][Tt][Ll][Ee]"))
             {
                 selected = true;
-                searchByTitle();
+                searchByTitle(user_ID);
 
+            }
+
+            if(selectionInput.matches("^[Bb][Aa][Cc][Kk]$"))
+            {
+                selected = true;
+                searchByActor(user_ID);
             }
             else
             {
@@ -296,7 +304,7 @@ public class Menus
         }
     }
 
-    private static void searchByTitle()
+    private static void searchByTitle(int user_ID)
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter Movie Title");
@@ -305,20 +313,32 @@ public class Menus
         JSONObject movie = Client.ClientServer.fetchObject("3££"+title);
         JSONArray mArray = new JSONArray("[]");
         mArray.put(movie);
-        System.out.println(movie);
-        System.out.println(mArray);
-
         Client.formatJSONMovie(mArray);
+        searchMenu(user_ID);
 
 
     }
 
-    private static void searchByDirector()
+    private static void searchByDirector(int user_ID)
     {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter Director name");
+        String director = keyboard.nextLine();
+
+        JSONArray mArray = Client.ClientServer.FetchingArray("4££"+director);
+        Client.formatJSONMovie(mArray);
+        searchMenu(user_ID);
     }
 
-    private static void searchByActor()
+    private static void searchByActor(int user_ID)
     {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter Actor name");
+        String actor = keyboard.nextLine();
+
+        JSONArray mArray = Client.ClientServer.FetchingArray("2££"+actor);
+        Client.formatJSONMovie(mArray);
+        searchMenu(user_ID);
 
 
     }
