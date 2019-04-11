@@ -77,6 +77,7 @@ public class Menus
         boolean registered = false;
         boolean hasEmail = false;
         boolean hasPassword = false;
+        String responseArray[]=null;
 
         while (!registered)
         {
@@ -127,18 +128,24 @@ public class Menus
 
             }
 
-            System.out.println(Client.ClientServer.fetchString("0££"+Email+"££"+password));
+            responseArray = Client.ClientServer.fetchString("0££" + Email + "££" + password).split(MovieDBDetails.BREAKINGCHARACTERS);
 
-               System.out.println("Press y to continue to register or any other key to return to the main menu");
-               String selected = keyboard.nextLine();
+            if (responseArray[0].equals("true")) {System.out.println(responseArray[1]); registered = true;}
+            else
+            {
+                System.out.println("Account already ");
+                System.out.println("Press y to continue to register or any other key to return to the main menu");
+                String selected = keyboard.nextLine();
 
-               if (!selected.equals("Y") && !selected.equals("y"))
-               {
-                   mainMenu();
-               }
+                if (!selected.equals("Y") && !selected.equals("y"))
+                {
+                    mainMenu();
+                }
 
-               hasEmail =false; hasPassword = false;}
-
+                hasEmail = false;
+                hasPassword = false;
+            }
+        }
 
         mainMenu();
     }

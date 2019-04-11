@@ -22,7 +22,7 @@ public class ClientServerConnection
     {
         try
         {
-            dataSocket = new Socket("127.0.0.1", MovieDBDetails.SERVER_PORT);
+            dataSocket = new Socket("10.102.11.17", MovieDBDetails.SERVER_PORT);
 
             out = dataSocket.getOutputStream();
             output = new PrintWriter(new OutputStreamWriter(out));
