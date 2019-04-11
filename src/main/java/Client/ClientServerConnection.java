@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class ClientServerConnection
@@ -16,7 +16,7 @@ public class ClientServerConnection
     private PrintWriter output = null;
     private InputStream in = null;
     private Scanner input = null;
-    private HashMap<String, String> cache = new HashMap<>();
+    private LinkedHashMap<String, String> cache = new LinkedHashMap<>(5);
 
     public ClientServerConnection()
     {
