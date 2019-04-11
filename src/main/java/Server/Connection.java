@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Connection implements Runnable
@@ -228,8 +229,24 @@ public class Connection implements Runnable
         }
     }
 
-    public String recommedMovie()
+    public String recommedMovie(String user)
     {
+        JSONArray WatchedList = watched.GetAllWatchedMovies(user);
+        Random rand = new Random();
+        int i = rand.nextInt(WatchedList.length());
+        JSONObject movie = WatchedList.getJSONObject(i);
+        String genre = movie.get("genre").toString();
+
+        String[] genres = genre.split(",");
+        if(genres.length > 1)
+        {
+            int j = rand.nextInt(genres.length);
+            int k = rand.nextInt(genres.length);
+        }
+        else
+        {
+
+        }
         return null;
     }
 }
