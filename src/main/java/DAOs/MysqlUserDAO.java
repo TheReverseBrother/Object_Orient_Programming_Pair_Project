@@ -78,7 +78,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
     }
 
     @Override
-    public boolean registerUser(String Username, String Password)
+    public String registerUser(String Username, String Password)
     {
         Connection con = null;
         PreparedStatement ps = null;
@@ -86,59 +86,44 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String result = "";
         int userID = 0;
         String dbPassword = null;
-        boolean check = checkIfUserExists(Username);
-
-        if (check)
+        try
         {
-            System.out.println("User already registered with this email please try another");
-            return false;
-        }
-        else if (!check)
-        {
-
-            try
-            {
-                con = this.getConnection();
-                String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
-                ps = con.prepareStatement(query);
-                ps.setString(1, Username);
-                ps.setString(2, Password);
-                ps.executeUpdate();
-                System.out.println("Registered Congratulations Login to Enjoy Features");
-                return true;
-
-            }
-            catch (SQLException e)
-            {
-
-                System.out.println("User already registered with this email please try another test");
-                return false;
-            }
-            finally
-            {
-                try
-                {
-                    if (rs != null)
-                    {
-                        rs.close();
-                    }
-                    if (ps != null)
-                    {
-                        ps.close();
-                    }
-                    if (con != null)
-                    {
-                        this.freeConnection(con);
-                    }
-                }
-                catch (SQLException e)
-                {
-
-                }
-            }
+            con = this.getConnection();
+            String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
+            ps = con.prepareStatement(query);
+            ps.setString(1,Username);
+            ps.setString(2,Password);
+            ps.executeUpdate();
+            result = "Registered Congratulations Login to Enjoy Features";
 
         }
-        return false;
+        catch(SQLException e)
+        {
+            System.out.println("SQL");
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                if(rs !=null)
+                {
+                    rs.close();
+                }
+                if(ps != null)
+                {
+                    ps.close();
+                }
+                if( con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch(SQLException e)
+            {
+
+            }
+        }
+
+        return result;
     }
 
     public Boolean checkIfUserExists(String username)

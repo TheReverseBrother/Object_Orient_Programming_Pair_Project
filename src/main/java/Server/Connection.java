@@ -78,6 +78,7 @@ public class Connection implements Runnable
             String incomingMessage = "";
             JSONObject returnObject = null;
             JSONArray returnArray = null;
+            System.out.println("Started Connection");
             while(connected)
             {
                 incomingMessage = input.nextLine();

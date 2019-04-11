@@ -26,8 +26,6 @@ public class Client
 
     public static ClientServerConnection ClientServer = new ClientServerConnection();
     public static int USERID = -1;
-    public static MysqlUserDAO userDAO = new MysqlUserDAO();
-    public static MysqlMovieDAO movieDAO = new MysqlMovieDAO();
 
     public static void main(String[] args)
     {
