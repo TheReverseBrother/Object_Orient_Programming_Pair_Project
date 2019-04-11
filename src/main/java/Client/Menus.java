@@ -31,14 +31,9 @@ public class Menus
             if (selectionInput.matches("[Qq][uU][iI][tT]"))
             {
                 selected = true;
-                if (Client.isConnected())
-                {
-                    Client.ClientServer.fetchString("8££Exiting");
-                }
-                else
-                {
-                    System.out.println("Goodbye hope to see you later");
-                }
+                Client.ClientServer.closeConnection("8££Exiting");
+                System.out.println("Goodbye Thank you for coming");
+
 
             }
 
@@ -266,5 +261,11 @@ public class Menus
 
     private static void searchMenu(int user_ID)
     {
+        boolean selected = false;
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Search By");
+        System.out.println("Actor");
+        System.out.println("Director");
+        System.out.println("Title");
     }
 }
