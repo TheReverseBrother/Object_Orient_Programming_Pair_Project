@@ -15,6 +15,7 @@ public class Menus
     public static void mainMenu()
     {
         boolean selected = false;
+        Client.USERID = -1;
 
 
         while (!selected)
@@ -211,7 +212,7 @@ public class Menus
 
 
         boolean selected = false;
-        int user_ID = Integer.parseInt(userID);
+        Client.USERID= Integer.parseInt(userID);
         Scanner keyboard = new Scanner(System.in);
 
         while (!selected)
@@ -228,7 +229,7 @@ public class Menus
             if (selectionInput.matches("^[Ss][eE][aA][rR][Cc][Hh]?[ ]*\\w*"))
             {
                 selected = true;
-                searchMenu(user_ID);
+                searchMenu();
 
             }
             else if (selectionInput.matches("^[Ee][Dd][Ii][Tt]?[ ]*\\w*"))
@@ -251,7 +252,7 @@ public class Menus
             else if (selectionInput.matches("^[Ll][Oo][Gg][Oo][Uu][Tt]"))
             {
                 selected = true;
-                mainMenu();
+                Client.logout();
             }
             else
             {
@@ -261,7 +262,7 @@ public class Menus
         }
     }
 
-    private static void searchMenu(int user_ID)
+    private static void searchMenu()
     {
         boolean selected = false;
         Scanner keyboard = new Scanner(System.in);
@@ -278,24 +279,24 @@ public class Menus
             if(selectionInput.matches("^[Aa][Cc][Tt][Oo][Rr]"))
             {
                 selected = true;
-                searchByActor(user_ID);
+                searchByActor();
             }
             else if(selectionInput.matches("^[Dd][Ii][Rr][Ee][Cc][Tt][Oo][Rr]"))
             {
                 selected = true;
-                searchByDirector(user_ID);
+                searchByDirector();
             }
             else if(selectionInput.matches("^[Tt][Ii][Tt][Ll][Ee]"))
             {
                 selected = true;
-                searchByTitle(user_ID);
+                searchByTitle();
 
             }
 
             if(selectionInput.matches("^[Bb][Aa][Cc][Kk]$"))
             {
                 selected = true;
-                String userID = ""+user_ID;
+                String userID = ""+Client.USERID;
                 applicationMenu(userID);
             }
             else
@@ -305,7 +306,7 @@ public class Menus
         }
     }
 
-    private static void searchByTitle(int user_ID)
+    private static void searchByTitle()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter Movie Title");
@@ -316,17 +317,17 @@ public class Menus
         mArray.put(movie);
         if (movie == null){
             System.out.println("Movie not found");
-            searchMenu(user_ID);
+            searchMenu();
         }
         else
         {
             Client.formatJSONMovie(mArray);
-            searchMenu(user_ID);
+            searchMenu();
         }
 
     }
 
-    private static void searchByDirector(int user_ID)
+    private static void searchByDirector()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter Director name");
@@ -335,16 +336,16 @@ public class Menus
         JSONArray mArray = Client.ClientServer.FetchingArray("4££"+director);
         if (mArray == null){
             System.out.println("Movie not found");
-            searchMenu(user_ID);
+            searchMenu();
         }
         else
         {
             Client.formatJSONMovie(mArray);
-            searchMenu(user_ID);
+            searchMenu();
         }
     }
 
-    private static void searchByActor(int user_ID)
+    private static void searchByActor()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter Actor name");
@@ -353,12 +354,12 @@ public class Menus
         JSONArray mArray = Client.ClientServer.FetchingArray("2££"+actor);
         if (mArray == null){
             System.out.println("Movie not found");
-            searchMenu(user_ID);
+            searchMenu();
         }
         else
         {
             Client.formatJSONMovie(mArray);
-            searchMenu(user_ID);
+            searchMenu();
         }
     }
 }
