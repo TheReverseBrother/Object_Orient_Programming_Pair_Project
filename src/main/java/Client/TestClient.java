@@ -16,7 +16,7 @@ public class TestClient
         boolean running = true;
         try
         {
-            Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
+            Socket dataSocket = new Socket("10.102.11.17", MovieDBDetails.SERVER_PORT);
 
             OutputStream out = dataSocket.getOutputStream();
             PrintWriter output = new PrintWriter(new OutputStreamWriter(out));

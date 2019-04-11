@@ -1,13 +1,12 @@
 package DAOs;
 
+import Client.Client;
 import Exceptions.DAOException;
+import com.mysql.cj.jdbc.result.ResultSetFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
 {
@@ -22,54 +21,56 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String dbPassword = "";
         try
         {
-            System.out.println("HOOO"+username);
+            System.out.println("HOOO" + username);
             con = this.getConnection();
             String query = "SELECT * FROM USERS WHERE EMAIL=?";
             ps = con.prepareStatement(query);
-            ps.setString(1,username);
+            ps.setString(1, username);
             rs = ps.executeQuery();
 
-            while(rs.next())
+            while (rs.next())
             {
                 userID = rs.getInt("UserID");
-                System.out.println("In RS"+ userID);
+                System.out.println("In RS" + userID);
                 dbPassword = rs.getString("Password");
                 System.out.println(dbPassword);
-                System.out.println("Passed: "+Password);
+                System.out.println("Passed: " + Password);
             }
 
 
-            if(dbPassword.equals(Password))
+            if (dbPassword.equals(Password))
             {
-                result = "true££"+userID;
+                result = "true££" + userID;
             }
             else
             {
                 result = "false££Invalid Username And Password";
             }
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
             throw new DAOException("findAllUsers() " + e.getMessage());
         }
-        finally {
-            try{
-                if(rs !=null)
+        finally
+        {
+            try
+            {
+                if (rs != null)
                 {
                     rs.close();
                 }
-                if(ps != null)
+                if (ps != null)
                 {
                     ps.close();
                 }
-                if( con != null)
+                if (con != null)
                 {
                     this.freeConnection(con);
                 }
             }
-            catch(SQLException e)
+            catch (SQLException e)
             {
-                throw new DAOException("findAllUsers() "+ e.getMessage());
+                throw new DAOException("findAllUsers() " + e.getMessage());
             }
         }
 
@@ -77,7 +78,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
     }
 
     @Override
-    public String registerUser(String Username, String Password)
+    public boolean registerUser(String Username, String Password)
     {
         Connection con = null;
         PreparedStatement ps = null;
@@ -85,44 +86,59 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         String result = "";
         int userID = 0;
         String dbPassword = null;
-        try
-        {
-            con = this.getConnection();
-            String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
-            ps = con.prepareStatement(query);
-            ps.setString(1,Username);
-            ps.setString(2,Password);
-            ps.executeUpdate();
-            result = "Registered Congratulations Login to Enjoy Features";
+        boolean check = checkIfUserExists(Username);
 
-        }
-        catch(SQLException e)
+        if (check)
         {
-            System.out.println("SQL");
-            e.printStackTrace();
+            System.out.println("User already registered with this email please try another");
+            return false;
         }
-        finally {
-            try{
-                if(rs !=null)
-                {
-                    rs.close();
-                }
-                if(ps != null)
-                {
-                    ps.close();
-                }
-                if( con != null)
-                {
-                    this.freeConnection(con);
-                }
+        else if (!check)
+        {
+
+            try
+            {
+                con = this.getConnection();
+                String query = "INSERT INTO USERS(EMAIL,PASSWORD) VALUES(?,?)";
+                ps = con.prepareStatement(query);
+                ps.setString(1, Username);
+                ps.setString(2, Password);
+                ps.executeUpdate();
+                System.out.println("Registered Congratulations Login to Enjoy Features");
+                return true;
+
             }
-            catch(SQLException e)
+            catch (SQLException e)
             {
 
+                System.out.println("User already registered with this email please try another test");
+                return false;
             }
-        }
+            finally
+            {
+                try
+                {
+                    if (rs != null)
+                    {
+                        rs.close();
+                    }
+                    if (ps != null)
+                    {
+                        ps.close();
+                    }
+                    if (con != null)
+                    {
+                        this.freeConnection(con);
+                    }
+                }
+                catch (SQLException e)
+                {
 
-        return result;
+                }
+            }
+
+        }
+        return false;
     }
 
     public Boolean checkIfUserExists(String username)
@@ -130,49 +146,54 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        boolean check = false;
+        int rowCount = 0;
         try
         {
             con = this.getConnection();
             String query = "SELECT * FROM USERS WHERE EMAIL=?";
             ps = con.prepareStatement(query);
-            ps.setString(1,username);
+            ps.setString(1, username);
             rs = ps.executeQuery();
 
-            System.out.println("RS" +rs);
-            if(rs.next())
+
+            while(rs.next())
             {
-                return true;
+                rowCount++; //or rs.getString("column name");
             }
-            else
-            {
-                return false;
-            }
+
+
+            if(rs.next()){rowCount =1 ;}
+
+
         }
-        catch(SQLException e)
+        catch (SQLException e)
         {
 
         }
-        finally {
-            try{
-                if(rs !=null)
+        finally
+        {
+            try
+            {
+                if (rs != null)
                 {
                     rs.close();
                 }
-                if(ps != null)
+                if (ps != null)
                 {
                     ps.close();
                 }
-                if( con != null)
+                if (con != null)
                 {
                     this.freeConnection(con);
                 }
             }
-            catch(SQLException e)
+            catch (SQLException e)
             {
-
+                System.out.println("test");
             }
         }
-
-        return false;
+        if(rowCount == 1){check = true;}
+        return check;
     }
 }

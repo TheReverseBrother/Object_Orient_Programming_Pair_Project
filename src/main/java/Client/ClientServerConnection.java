@@ -19,7 +19,7 @@ public class ClientServerConnection
     {
         try
         {
-            dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
+            dataSocket = new Socket("127.0.0.1", MovieDBDetails.SERVER_PORT);
 
             out = dataSocket.getOutputStream();
             output = new PrintWriter(new OutputStreamWriter(out));
@@ -72,5 +72,18 @@ public class ClientServerConnection
             return null;
         }
         return returnMessage;
+    }
+
+    public void closeConnection(String message)
+    {
+        output.println(message);
+        output.flush();
+        try {
+            output.close();
+            dataSocket.close();
+        }catch(IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

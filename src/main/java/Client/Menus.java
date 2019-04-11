@@ -1,11 +1,11 @@
 package Client;
 
 import CoreDetails.MovieDBDetails;
+import Exceptions.DAOException;
+import org.json.JSONArray;
 
-import java.io.*;
-import java.net.Socket;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
 
 public class Menus
 {
@@ -13,8 +13,15 @@ public class Menus
 
     public static void mainMenu()
     {
-        boolean selected = false;
 
+
+        try
+        {
+            JSONArray test = Client.movieDAO.findMovieByActor("Robert Downey Jr");
+            Client.formatJSONMovie(test);
+        }
+        catch (DAOException e){}
+        boolean selected = false;
 
         while (!selected)
         {
@@ -24,56 +31,126 @@ public class Menus
             System.out.println("Login");
             System.out.println("Register");
             System.out.println("Quit");
-            String input = keyboard.nextLine();
-
+            String selectionInput = keyboard.nextLine();
 
 
             // Quit
 
-            if (input.matches("[Qq][uU][iI][tT]"))
+            if (selectionInput.matches("[Qq][uU][iI][tT]"))
             {
                 selected = true;
-                if(Client.isConnected())
+                if (Client.isConnected())
                 {
-                    try{
-                    Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
-
-                    OutputStream out = dataSocket.getOutputStream();
-
-                    PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
-
-                    output.println("8££Exiting");
-                    output.flush();
+                    Client.ClientServer.fetchString("8££Exiting");
                 }
-                    catch(Exception e){}
+                else
+                {
+                    System.out.println("Goodbye hope to see you later");
                 }
-                else {System.out.println("Goodbye hope to see you later");}
 
             }
 
             //Login
-            else if (input.matches("[lL][oO][gG][iI][nN]"))
+            else if (selectionInput.matches("[lL][oO][gG][iI][nN]"))
             {
                 loginMenu();
                 selected = true;
 
             }
             //Register
-            else if (input.matches("[rR][eE][gG][iI][sS][tT][eE][rR]"))
+            else if (selectionInput.matches("[rR][eE][gG][iI][sS][tT][eE][rR]"))
             {
-                System.out.println("test");
                 selected = true;
+                registerMenu();
 
             }
             //default
             else
-                {
-                    System.out.println("invalid input please type a recognised command");
-                    System.out.println();
-                }
+            {
+                System.out.println("invalid input please type a recognised command");
+                System.out.println();
+            }
 
         }
     }
+
+    private static void registerMenu()
+    {
+        Scanner keyboard = new Scanner(System.in);
+
+        String Email = "";
+        String password = "";
+        String confirmEmail;
+        String confirmPassword;
+        boolean registered = false;
+        boolean hasEmail = false;
+        boolean hasPassword = false;
+
+        while (!registered)
+        {
+            while (!hasEmail)
+            {
+                System.out.println("Please enter the E-mail address that you would like to register your account to");
+                Email = keyboard.nextLine();
+
+                if (!Email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$") || Email.matches(".*?[£][£].*"))
+                {
+                    System.out.println("please enter a valid E-mail");
+                    Email = keyboard.nextLine();
+                }
+
+                System.out.println("please confirm that " + Email + " is the correct E-mail address Y for yes and any other key for no");
+                confirmEmail = keyboard.nextLine();
+
+                if (confirmEmail.equals("Y") || confirmEmail.equals("y"))
+                {
+                    hasEmail = true;
+                }
+            }
+
+
+            while (hasEmail && !hasPassword)
+            {
+                System.out.println("Please Create a Password");
+                password = keyboard.nextLine();
+
+                if (password.matches(".*[£][£].*"))
+                {
+                    System.out.println("please enter a valid password");
+                    password = keyboard.nextLine();
+                }
+
+                System.out.println("please confirm your password by typing it in again");
+                confirmPassword = keyboard.nextLine();
+
+                if (!password.equals(confirmPassword))
+                {
+                    System.out.println("password did not match");
+
+                }
+                else
+                {
+                    hasPassword = true;
+                }
+
+            }
+           if(Client.userDAO.registerUser(Email, password)){registered = true;}
+           else {
+               System.out.println("Press y to continue to register or any other key to return to the main menu");
+               String selected = keyboard.nextLine();
+
+               if (!selected.equals("Y") && !selected.equals("y"))
+               {
+                   mainMenu();
+               }
+
+               hasEmail =false; hasPassword = false;}
+
+
+        }
+        mainMenu();
+    }
+
 
     private static void loginMenu()
     {
@@ -83,15 +160,14 @@ public class Menus
         String password = "";
         String[] responseArray = null;
 
+        System.out.println("Please enter your E-mail");
+        Email = keyboard.nextLine();
 
+        System.out.println("please enter Password");
+        password = keyboard.nextLine();
 
         while (!loggedIn)
         {
-
-
-
-                System.out.println("Please enter your E-mail");
-                Email = keyboard.nextLine();
 
             // found regex online for email addresses @ http://www.regexlib.com/Search.aspx?k=email&c=-1&m=-1&ps=20 author Steven Smith the regex for the breaking characters is my own
             if (!Email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$") || Email.matches(".*?[£][£].*"))
@@ -100,62 +176,96 @@ public class Menus
                 loginMenu();
             }
 
-                System.out.println("please enter Password");
-                password = keyboard.nextLine();
-
+            String logInMessage = "1££" + Email + "££" + password;
 
             try
             {
-                String logInMessage = "1££"+Email+"££"+password;
-                Socket dataSocket = new Socket("localhost", MovieDBDetails.SERVER_PORT);
 
-                OutputStream out = dataSocket.getOutputStream();
-                InputStream in = dataSocket.getInputStream();
-
-                PrintWriter output = new PrintWriter(new OutputStreamWriter(out));
-                Scanner input = new Scanner(new InputStreamReader(in));
-
-                output.println(logInMessage);
-                output.flush();
-                String response = input.nextLine();
+                String response = Client.ClientServer.fetchString(logInMessage);
                 responseArray = response.split(MovieDBDetails.BREAKINGCHARACTERS);
 
 
-
-
-
-            if(responseArray[0].equals("true"))
+                if (responseArray[0].equals("true"))
                 {
                     loggedIn = true;
-                    break;
                 }
                 else
                 {
-
-                    System.out.println("E-mail or password incorrect");
-                        output.println("8££Exiting");
-                        output.flush();
-                        dataSocket.close();
+                    System.out.println("Invalid E-mail or password");
+                    System.out.println("Please enter your E-mail");
+                    Email = keyboard.nextLine();
+                    System.out.println("please enter Password");
+                    password = keyboard.nextLine();
                 }
-
-
-
-
-
             }
-            catch (Exception e){}
+            catch (Exception e)
+            {
+            }
 
 
         }
+
         applicationMenu(responseArray[1]);
+
 
     }
 
     private static void applicationMenu(String userID)
     {
+
+
+        boolean selected = false;
         int user_ID = Integer.parseInt(userID);
+        Scanner keyboard = new Scanner(System.in);
 
+        while (!selected)
+        {
 
+            System.out.println("Search for Movie");
+            System.out.println("Edit Movies");
+            System.out.println("Get Watched Movies");
+            System.out.println("Add to Watched Movies");
+            System.out.println("Logout");
 
+            String selectionInput = keyboard.nextLine();
+
+            if (selectionInput.matches("^[Ss][eE][aA][rR][Cc][Hh]?[ ]*\\w*"))
+            {
+                selected = true;
+                searchMenu(user_ID);
+
+            }
+            else if (selectionInput.matches("^[Ee][Dd][Ii][Tt]?[ ]*\\w*"))
+            {
+                selected = true;
+                Client.editMovie(user_ID);
+
+            }
+            else if (selectionInput.matches("^[Gg][Ee][Tt][Tt]?[ ]*\\w*") || selectionInput.matches("^[Ww][Aa][Tt][Cc][Hh][Ee][Dd]?[ ]*\\w*"))
+            {
+                selected = true;
+                Client.getWatchedMovies(user_ID);
+
+            }
+            else if (selectionInput.matches("^[Aa][Dd][Dd]?[ ]*\\w*"))
+            {
+                selected = true;
+                Client.addMovieToWatched(user_ID);
+            }
+            else if (selectionInput.matches("^[Ll][Oo][Gg][Oo][Uu][Tt]"))
+            {
+                selected = true;
+                mainMenu();
+            }
+            else
+            {
+                System.out.println("Unrecognized Command");
+            }
+
+        }
+    }
+
+    private static void searchMenu(int user_ID)
+    {
     }
 }
