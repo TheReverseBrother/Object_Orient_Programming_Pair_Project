@@ -51,20 +51,20 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 
 
                     JSONObject movie = new JSONObject();
-                    movie.put("movieID    ",""+movieID);
-                    movie.put("title      ",""+title);
-                    movie.put("genre      ",""+genre);
-                    movie.put("director   ",""+director);
-                    movie.put("runtime    ",""+runtime);
-                    movie.put("plot       ",""+plot);
-                    movie.put("location   ",""+location);
-                    movie.put("poster     ",""+poster);
-                    movie.put("rating     ",""+rating);
-                    movie.put("format     ",""+format);
-                    movie.put("year       ",""+year);
-                    movie.put("starring   ",""+starring);
-                    movie.put("copies     ",""+copies);
-                    movie.put("barcode    ",""+barcode);
+                    movie.put("movieID",""+movieID);
+                    movie.put("title",""+title);
+                    movie.put("genre",""+genre);
+                    movie.put("director",""+director);
+                    movie.put("runtime",""+runtime);
+                    movie.put("plot",""+plot);
+                    movie.put("location",""+location);
+                    movie.put("poster",""+poster);
+                    movie.put("rating",""+rating);
+                    movie.put("format",""+format);
+                    movie.put("year",""+year);
+                    movie.put("starring",""+starring);
+                    movie.put("copies",""+copies);
+                    movie.put("barcode",""+barcode);
                     movie.put("user_rating",""+user_rating);
 
 
@@ -142,16 +142,16 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
                 movie.put("title",""+title);
                 movie.put("genre",""+genre);
                 movie.put("director",""+director);
-                movie.put("runtime    ",""+runtime);
-                movie.put("plot       ",""+plot);
-                movie.put("location   ",""+location);
-                movie.put("poster     ",""+poster);
-                movie.put("rating     ",""+rating);
-                movie.put("format     ",""+format);
-                movie.put("year       ",""+year);
-                movie.put("starring   ",""+starring);
-                movie.put("copies     ",""+copies);
-                movie.put("barcode    ",""+barcode);
+                movie.put("runtime",""+runtime);
+                movie.put("plot",""+plot);
+                movie.put("location",""+location);
+                movie.put("poster",""+poster);
+                movie.put("rating",""+rating);
+                movie.put("format",""+format);
+                movie.put("year",""+year);
+                movie.put("starring",""+starring);
+                movie.put("copies",""+copies);
+                movie.put("barcode",""+barcode);
                 movie.put("user_rating",""+user_rating);
 
             }
@@ -226,20 +226,20 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
                     String user_rating = rs.getString("User_Rating");
 
                     JSONObject movie = new JSONObject();
-                    movie.put("movieID    ",""+movieID);
-                    movie.put("title      ",""+title);
-                    movie.put("genre      ",""+genre);
-                    movie.put("director   ",""+director);
-                    movie.put("runtime    ",""+runtime);
-                    movie.put("plot       ",""+plot);
-                    movie.put("location   ",""+location);
-                    movie.put("poster     ",""+poster);
-                    movie.put("rating     ",""+rating);
-                    movie.put("format     ",""+format);
-                    movie.put("year       ",""+year);
-                    movie.put("starring   ",""+starring);
-                    movie.put("copies     ",""+copies);
-                    movie.put("barcode    ",""+barcode);
+                    movie.put("movieID",""+movieID);
+                    movie.put("title",""+title);
+                    movie.put("genre",""+genre);
+                    movie.put("director",""+director);
+                    movie.put("runtime",""+runtime);
+                    movie.put("plot",""+plot);
+                    movie.put("location",""+location);
+                    movie.put("poster",""+poster);
+                    movie.put("rating",""+rating);
+                    movie.put("format",""+format);
+                    movie.put("year",""+year);
+                    movie.put("starring",""+starring);
+                    movie.put("copies",""+copies);
+                    movie.put("barcode",""+barcode);
                     movie.put("user_rating",""+user_rating);
 
 
