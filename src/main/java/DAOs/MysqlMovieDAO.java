@@ -390,7 +390,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         try
         {
             con = this.getConnection();
-            String query = "UPDATE movies set title=?, genre=?,director=?,runtime=?,plot=?,starring=? WHERE ID = ?";
+            String query = "UPDATE movies set title=?, genre=?,director=?,runtime=?,plot=?,starring=?,user_rating=? WHERE ID = ?";
             ps = con.prepareStatement(query);
             ps.setString(1, movie.getString("title"));
             ps.setString(2, movie.getString("genre"));
@@ -398,7 +398,8 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             ps.setString(4, movie.getString("runtime"));
             ps.setString(5, movie.getString("plot"));
             ps.setString(6, movie.getString("starring"));
-            ps.setString(7, movie.getString("movieID"));
+            ps.setString(7, movie.getString("user_rating"));
+            ps.setString(8, movie.getString("movieID"));
 
             rs = ps.executeQuery();
             return "SuccessFully Updated";
