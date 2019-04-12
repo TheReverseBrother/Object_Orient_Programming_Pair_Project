@@ -11,6 +11,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Connection implements Runnable
@@ -84,6 +85,7 @@ public class Connection implements Runnable
                 incomingMessage = input.nextLine();
                 System.out.println("Incoming Request: "+ incomingMessage);
 
+
                 String[] messageArray = incomingMessage.split(MovieDBDetails.BREAKINGCHARACTERS);
                 int choice = Integer.parseInt(messageArray[0]);
                 ServerOptions options = ServerOptions.values()[choice];
@@ -148,7 +150,7 @@ public class Connection implements Runnable
                     case UPDATE:
                         System.out.println("Update Request");
                         JSONObject movie = new JSONObject(messageArray[1]);
-                        returnMessage = movies.updateMovieByID(movie);
+                        returnMessage = movies.updateMovieByTitle(messageArray[1],messageArray[2]);
                         output.println(returnMessage);
                         output.flush();
                         break;
@@ -228,8 +230,24 @@ public class Connection implements Runnable
         }
     }
 
-    public String recommedMovie()
+    public String recommedMovie(String user)
     {
+        JSONArray WatchedList = watched.GetAllWatchedMovies(user);
+        Random rand = new Random();
+        int i = rand.nextInt(WatchedList.length());
+        JSONObject movie = WatchedList.getJSONObject(i);
+        String genre = movie.get("genre").toString();
+
+        String[] genres = genre.split(",");
+        if(genres.length > 1)
+        {
+            int j = rand.nextInt(genres.length);
+            int k = rand.nextInt(genres.length);
+        }
+        else
+        {
+
+        }
         return null;
     }
 }
