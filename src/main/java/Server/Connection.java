@@ -21,6 +21,7 @@ public class Connection implements Runnable
     private static List pool = new LinkedList();
     public MysqlUserDAO user = new MysqlUserDAO();
     public WatchedDAO watched = new WatchedDAO();
+    public MysqlMovieDAO movies = new MysqlMovieDAO();
 
     public Connection(){}
 
@@ -89,7 +90,6 @@ public class Connection implements Runnable
                 String[] messageArray = incomingMessage.split(MovieDBDetails.BREAKINGCHARACTERS);
                 int choice = Integer.parseInt(messageArray[0]);
                 ServerOptions options = ServerOptions.values()[choice];
-                MysqlMovieDAO movies = new MysqlMovieDAO();
                 switch(options)
                 {
                     case REGISTER:
@@ -150,7 +150,8 @@ public class Connection implements Runnable
                     case UPDATE:
                         System.out.println("Update Request");
                         JSONObject movie = new JSONObject(messageArray[1]);
-                        returnMessage = movies.updateMovieByTitle(messageArray[1],messageArray[2]);
+                        returnMessage = movies.updateMovieByID(movie);
+//                        returnMessage = movies.updateMovieByTitle(messageArray[1],messageArray[2]);
                         output.println(returnMessage);
                         output.flush();
                         break;
@@ -235,7 +236,8 @@ public class Connection implements Runnable
         JSONArray WatchedList = watched.GetAllWatchedMovies(user);
         Random rand = new Random();
         int i = rand.nextInt(WatchedList.length());
-        JSONObject movie = WatchedList.getJSONObject(i);
+        JSONObject watchedMovie = WatchedList.getJSONObject(i);
+        JSONObject movie = movies.getGenres(watchedMovie.getString(""))
         String genre = movie.get("genre").toString();
 
         String[] genres = genre.split(",");
