@@ -5,6 +5,8 @@ import DAOs.MysqlUserDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Scanner;
+
 public class Client
 {
     private static boolean connection = false;
@@ -42,6 +44,29 @@ public class Client
     {
         Menus.mainMenu();
     }
+
+
+    public static void updateMenu()
+    {
+        boolean picked = false;
+
+        while (!picked)
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Enter the name of the move you would like to rate");
+            String title = keyboard.nextLine();
+            System.out.println("Enter Rating you would like to give this movie");
+            String rating = keyboard.nextLine();
+
+            ClientServer.fetchString("5££"+rating+":"+title+"££"+Client.USERID);
+
+
+        }
+
+
+
+    }
+
 
 }
 
