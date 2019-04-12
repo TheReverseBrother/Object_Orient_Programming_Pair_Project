@@ -38,8 +38,8 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
                     String movieID = rs.getString("movieID");
 
                     JSONObject Watched = new JSONObject();
-                    Watched.put("title      ",""+title);
-                    Watched.put("movieID      ",""+movieID);
+                    Watched.put("title",""+title);
+                    Watched.put("movieID",""+movieID);
 
                     WatchedList.put(Watched);
                 }

@@ -14,4 +14,5 @@ public interface MovieDAOInterface
     public String updateMovieByID(JSONObject movie);
     public JSONObject findWatchedMovie(String userID);
     public String updateMovieByTitle(String movie);
+    public JSONArray findMovieByGenre(String GENRE);
 }

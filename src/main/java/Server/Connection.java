@@ -244,11 +244,60 @@ public class Connection implements Runnable
         if(genres.length > 1)
         {
             int j = rand.nextInt(genres.length);
+            JSONArray MoviesWithSimilarGenre = movies.findMovieByGenre(genres[j]);
+
+            for(int x = 0 ; x < MoviesWithSimilarGenre.length(); ++x)
+            {
+                for (int y = 0; y < WatchedList.length(); ++y)
+                {
+                    if(MoviesWithSimilarGenre.getJSONObject(x).get("title")== WatchedList.getJSONObject(y).get("title"))
+                    {
+                        MoviesWithSimilarGenre.remove(x);
+                    }
+                }
+            }
+            if(MoviesWithSimilarGenre.length() > 10)
+            {
+                JSONArray returnArray = null;
+                for(int x = 0; x <10; x++)
+                {
+                    returnArray.put(MoviesWithSimilarGenre.getJSONObject(x));
+                }
+                return returnArray.toString();
+            }
+            else
+            {
+                return  MoviesWithSimilarGenre.toString();
+            }
+
         }
         else
         {
+            JSONArray MoviesWithSimilarGenre = movies.findMovieByGenre(genres[0]);
 
+            for(int x = 0 ; x < MoviesWithSimilarGenre.length(); ++x)
+            {
+                for (int y = 0; y < WatchedList.length(); ++y)
+                {
+                    if(MoviesWithSimilarGenre.getJSONObject(x).get("movieID")== WatchedList.getJSONObject(y).get("movieID"))
+                    {
+                        MoviesWithSimilarGenre.remove(x);
+                    }
+                }
+            }
+            if(MoviesWithSimilarGenre.length() > 10)
+            {
+                JSONArray returnArray = null;
+                for(int x = 0; x <10; x++)
+                {
+                    returnArray.put(MoviesWithSimilarGenre.getJSONObject(x));
+                }
+                return returnArray.toString();
+            }
+            else
+            {
+                return  MoviesWithSimilarGenre.toString();
+            }
         }
-        return null;
     }
 }
