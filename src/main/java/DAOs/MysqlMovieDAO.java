@@ -387,6 +387,8 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+
+        System.out.println(movie);
         try
         {
             con = this.getConnection();
@@ -399,9 +401,9 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             ps.setString(5, movie.getString("plot"));
             ps.setString(6, movie.getString("starring"));
             ps.setString(7, movie.getString("user_rating"));
-            ps.setString(8, movie.getString("movieID"));
+            ps.setString(8, movie.getString("MovieID"));
 
-            rs = ps.executeQuery();
+            ps.executeUpdate();
             return "SuccessFully Updated";
         }
         catch (SQLException e)

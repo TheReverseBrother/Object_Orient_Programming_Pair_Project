@@ -286,18 +286,38 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
 
                     while (rs.next())
                     {
-                        String title = rs.getString("title");
-                        String genre = rs.getString("genre");
-                        String rating = rs.getString("user_rating");
+                        String title = rs.getString("Title");
+                        String genre = rs.getString("Genre");
                         String director = rs.getString("director");
-                        String starring = rs.getString("starring");
+                        String runtime = rs.getString("runtime");
+                        String plot = rs.getString("Plot");
+                        String location = rs.getString("Location");
+                        String poster = rs.getString("Poster");
+                        String rating = rs.getString("Rating");
+                        String format = rs.getString("Format");
+                        String year = rs.getString("Year");
+                        String starring = rs.getString("Starring");
+                        int copies = rs.getInt("Copies");
+                        String barcode = rs.getString("Barcode");
+                        String user_rating = rs.getString("User_Rating");
 
                         JSONObject Watched = new JSONObject();
                         Watched.put("title", "" + title);
                         Watched.put("genre", "" + genre);
-                        Watched.put("user_rating", "" + rating);
                         Watched.put("director", "" + director);
+                        Watched.put("runtime", "" + runtime);
+                        Watched.put("plot", "" + plot);
                         Watched.put("starring", "" + starring);
+                        Watched.put("user_rating", "" + user_rating);
+                        Watched.put("location", "" + location);
+                        Watched.put("poster", "" + poster);
+                        Watched.put("format", "" + format);
+                        Watched.put("year", "" + year);
+                        Watched.put("copies", "" + copies);
+                        Watched.put("barcode", "" + barcode);
+                        Watched.put("rating", "" + rating);
+                        Watched.put("id",""+movieIDs.get(i));
+                        Watched.put("movieID",""+movieIDs.get(i));
                         System.out.println(WatchedList.toString());
 
                         WatchedList.put(Watched);
