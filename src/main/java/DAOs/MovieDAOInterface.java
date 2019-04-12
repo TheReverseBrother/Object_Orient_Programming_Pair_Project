@@ -12,4 +12,5 @@ public interface MovieDAOInterface
     public JSONArray findMovieByActor(String Actor) throws DAOException;
     public String updateMovieByID(JSONObject movie);
     public String getGenres(String title);
+    public JSONArray getMoviesByGenres(String GenreOne,String GenreTwo);
 }

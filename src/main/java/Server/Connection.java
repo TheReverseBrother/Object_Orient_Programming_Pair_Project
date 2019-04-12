@@ -229,7 +229,7 @@ public class Connection implements Runnable
         }
     }
 
-    public String recommedMovie(String user)
+    public String recommendMovie(String user)
     {
         JSONArray WatchedList = watched.GetAllWatchedMovies(user);
         Random rand = new Random();
@@ -242,6 +242,7 @@ public class Connection implements Runnable
         {
             int j = rand.nextInt(genres.length);
             int k = rand.nextInt(genres.length);
+
         }
         else
         {
