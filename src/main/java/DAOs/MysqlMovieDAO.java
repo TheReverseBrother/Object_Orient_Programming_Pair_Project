@@ -697,7 +697,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         {
             String genreQuery = "%" + GENRE + "%";
             con = this.getConnection();
-            String query = "SELECT * FROM MOVIES WHERE GENRE LIKE ?";
+            String query = "SELECT * FROM MOVIES WHERE GENRE LIKE ? LIMIT 10";
             ps = con.prepareStatement(query);
             ps.setString(1, genreQuery);
 

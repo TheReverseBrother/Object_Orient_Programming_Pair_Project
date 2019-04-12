@@ -19,9 +19,9 @@ public class Connection implements Runnable
     private Socket socketToHandle;
 
     private static List pool = new LinkedList();
-    public MysqlUserDAO user = new MysqlUserDAO();
-    public WatchedDAO watched = new WatchedDAO();
-    public MysqlMovieDAO movies = new MysqlMovieDAO();
+    public static MysqlUserDAO user = new MysqlUserDAO();
+    public static WatchedDAO watched = new WatchedDAO();
+    public static MysqlMovieDAO movies = new MysqlMovieDAO();
 
     public Connection(){}
 
@@ -239,7 +239,7 @@ public class Connection implements Runnable
             return "true££"+watched.AddtoWatched(user,movie,title);
         }
     }
-    public String recommendMovie(String user)
+    public static String recommendMovie(String user)
     {
         JSONArray WatchedList = watched.GetAllWatchedMovies(user);
         Random rand = new Random();
@@ -265,20 +265,7 @@ public class Connection implements Runnable
                     }
                 }
             }
-            if(MoviesWithSimilarGenre.length() > 10)
-            {
-                JSONArray returnArray = null;
-                for(int x = 0; x <10; x++)
-                {
-                    returnArray.put(MoviesWithSimilarGenre.getJSONObject(x));
-                }
-                return returnArray.toString();
-            }
-            else
-            {
-                return  MoviesWithSimilarGenre.toString();
-            }
-
+            return MoviesWithSimilarGenre.toString();
         }
         else
         {
@@ -294,19 +281,7 @@ public class Connection implements Runnable
                     }
                 }
             }
-            if(MoviesWithSimilarGenre.length() > 10)
-            {
-                JSONArray returnArray = null;
-                for(int x = 0; x <10; x++)
-                {
-                    returnArray.put(MoviesWithSimilarGenre.getJSONObject(x));
-                }
-                return returnArray.toString();
-            }
-            else
-            {
-                return  MoviesWithSimilarGenre.toString();
-            }
+            return MoviesWithSimilarGenre.toString();
         }
     }
 }
