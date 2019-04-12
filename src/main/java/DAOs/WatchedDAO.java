@@ -204,7 +204,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             if (rs.next())
             {
                 System.out.println("test2");
-                rs.beforeFirst();
+                rs.first();
                 while (rs.next())
                 {
                     System.out.println("test3");
@@ -253,7 +253,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             }
         }
 
-        if(movieIDs.size()>0){return null;}
+        if(movieIDs.size()<=0){return emptyArray;}
         else { return getMovieList(movieIDs);}
     }
 
@@ -272,14 +272,15 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         }
         else
         {
-            try
+            for (int i = 0; i < movieIDs.size(); i++)
             {
-                for (int i = 0; i < movieIDs.size(); i++)
-                {
+
+                try
+            {
                     con = this.getConnection();
                     String query = "SELECT * FROM movies WHERE id=?";
                     ps = con.prepareStatement(query);
-                    ps.setInt(1, 14);
+                    ps.setInt(1, movieIDs.get(i));
                     System.out.println(query);
 
                     rs = ps.executeQuery();
@@ -302,7 +303,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
 
                         WatchedList.put(Watched);
                     }
-                }
+
             }
             catch (SQLException e)
             {
@@ -311,7 +312,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             {
                 System.out.println("reeee");
             }
-        }
+        }}
         return WatchedList;
     }
 }

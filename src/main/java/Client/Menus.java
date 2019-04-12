@@ -279,7 +279,8 @@ public class Menus
 
     private static void getWatchedMenu()
     {
-        JSONArray array = new JSONArray(Client.ClientServer.fetchString("9££" + Client.USERID));
+        JSONArray array = Client.ClientServer.FetchingArray("9££" + Client.USERID);
+        System.out.println(array);
 
 
         if(array.length()<=0){
