@@ -5,6 +5,8 @@ import DAOs.MysqlUserDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Scanner;
+
 public class Client
 {
     private static boolean connection = false;
@@ -20,7 +22,7 @@ public class Client
 
     public static void formatJSONMovie(JSONArray array)
     {
-        JSONObject test;
+        JSONObject obj;
         System.out.println("████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████");
 
         System.out.format("█"+"%40s%60s%20s%30s%60s%20s", "Title", "Genre", "Rating", "Director", "Starring","█");
@@ -30,12 +32,42 @@ public class Client
         for (int i = 0; i < array.length(); i++)
         {
 
-            test = array.getJSONObject(i);
-
-            System.out.format("█"+"%40s%60s%20s%30s%78s%2s", "\"" + test.get("title") + "\"", test.get("genre"), test.get("user_rating"), test.get("director"), test.get("starring"),"█");
+            obj = array.getJSONObject(i);
+            System.out.format("█"+"%40s%60s%20s%30s%78s%2s", "\"" + obj.get("title") + "\"", obj.get("genre"), obj.get("user_rating"), obj.get("director"), obj.get("starring"),"█");
             System.out.println();
 
         }
         System.out.println("████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████");
     }
+
+    public  static void logout()
+    {
+        Menus.mainMenu();
+    }
+
+
+    public static void updateMenu()
+    {
+        boolean picked = false;
+
+        while (!picked)
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Enter the name of the move you would like to rate");
+            String title = keyboard.nextLine();
+            System.out.println("Enter Rating you would like to give this movie");
+            String rating = keyboard.nextLine();
+
+            ClientServer.fetchString("5££"+rating+":"+title+"££"+Client.USERID);
+
+
+        }
+
+
+
+    }
+
+
 }
+
+
