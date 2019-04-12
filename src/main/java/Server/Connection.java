@@ -173,7 +173,7 @@ public class Connection implements Runnable
                         break;
                     case GET_WATCHED:
                         System.out.println("Get Watched Request");
-                        returnArray = watched.GetAllWatchedMovies(messageArray[1]);
+                        returnArray = watched.GetAllWatchedMoviesForClient(messageArray[1]);
                         if(returnArray == null)
                         {
                             returnMessage = "null";
