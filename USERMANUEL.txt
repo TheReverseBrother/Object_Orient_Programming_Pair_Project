@@ -69,6 +69,9 @@ GETALLWATCHER:
 returns JSONARRAY
 if aint there returns "null"
 
+DELETE USER
+10££USerID
+returns message string
 
 
 Tomas' Recommendation based on genre

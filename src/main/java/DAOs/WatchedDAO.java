@@ -89,7 +89,6 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         String result = "";
         try
         {
-            System.out.println("Fight Me");
             con = this.getConnection();
             String query = "INSERT INTO WATCHEDTABLE(USERID,MOVIEID,MOVIETITLE) VALUES(?,?,?)";
             ps = con.prepareStatement(query);
@@ -314,5 +313,50 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             }
         }}
         return WatchedList;
+    }
+
+    @Override
+    public void removeUserWatched(String User)
+    {
+        int userID = Integer.parseInt(User);
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try
+        {
+            con = this.getConnection();
+            String query = "DELETE FROM WATCHEDTABLE WHERE USERID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1, userID);
+            ps.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("SQL");
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if (rs != null)
+                {
+                    rs.close();
+                }
+                if (ps != null)
+                {
+                    ps.close();
+                }
+                if (con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch (SQLException e)
+            {
+
+            }
+        }
     }
 }

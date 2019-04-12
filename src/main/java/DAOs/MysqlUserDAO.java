@@ -181,4 +181,52 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         if(rowCount == 1){check = true;}
         return check;
     }
+
+    @Override
+    public String deleteUser(String user)
+    {
+        int userID = Integer.parseInt(user);
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String result = "";
+        String dbPassword = null;
+        try
+        {
+            con = this.getConnection();
+            String query = "DELETE from USERS WHERE USERID = ?";
+            ps = con.prepareStatement(query);
+            ps.setInt(1,userID);
+            ps.executeUpdate();
+            result = "Account DELETED";
+
+        }
+        catch(SQLException e)
+        {
+            System.out.println("SQL");
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                if(rs !=null)
+                {
+                    rs.close();
+                }
+                if(ps != null)
+                {
+                    ps.close();
+                }
+                if( con != null)
+                {
+                    this.freeConnection(con);
+                }
+            }
+            catch(SQLException e)
+            {
+
+            }
+        }
+
+        return result;
+    }
 }

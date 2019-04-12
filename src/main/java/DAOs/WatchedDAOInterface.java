@@ -8,4 +8,5 @@ public interface WatchedDAOInterface
     public String AddtoWatched(String userID, String movieID, String title);
     public Boolean CheckIfWatched(String user,String movie);
     public JSONArray GetAllWatchedMoviesForClient(String user);
+    public void removeUserWatched(String User);
 }

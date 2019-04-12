@@ -185,6 +185,11 @@ public class Connection implements Runnable
                         output.println(returnMessage);
                         output.flush();
                         break;
+                    case DELETEUSER:
+                        returnMessage = deleteUser(messageArray[1]);
+                        output.println(returnMessage);
+                        output.flush();
+                        break;
                     default:
                         System.out.println("Invalid Input.");
                 }
@@ -202,7 +207,11 @@ public class Connection implements Runnable
             System.out.println("HAH BITCH");
         }
     }
-
+    public String deleteUser(String userID)
+    {
+        watched.removeUserWatched(userID);
+        return user.deleteUser(userID);
+    }
     public String Register(String Username,String Password)
     {
         Boolean exists = user.checkIfUserExists(Username);
