@@ -163,7 +163,7 @@ public class Connection implements Runnable
                         break;
                     case RECOMMEND:
                         System.out.println("Recommend Request");
-                        returnMessage = "";
+                        returnMessage = recommendMovie(messageArray[1]);
                         output.println(returnMessage);
                         output.flush();
                         break;
