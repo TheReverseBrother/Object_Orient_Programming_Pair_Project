@@ -85,6 +85,7 @@ public class Connection implements Runnable
                 incomingMessage = input.nextLine();
                 System.out.println("Incoming Request: "+ incomingMessage);
 
+
                 String[] messageArray = incomingMessage.split(MovieDBDetails.BREAKINGCHARACTERS);
                 int choice = Integer.parseInt(messageArray[0]);
                 ServerOptions options = ServerOptions.values()[choice];
@@ -149,7 +150,7 @@ public class Connection implements Runnable
                     case UPDATE:
                         System.out.println("Update Request");
                         JSONObject movie = new JSONObject(messageArray[1]);
-                        returnMessage = movies.updateMovieByID(movie);
+                        returnMessage = movies.updateMovieByTitle(messageArray[1],messageArray[2]);
                         output.println(returnMessage);
                         output.flush();
                         break;
