@@ -230,21 +230,20 @@ public class Connection implements Runnable
             return "true££"+watched.AddtoWatched(user,movie,title);
         }
     }
-
-    public String recommedMovie(String user)
+    public String recommendMovie(String user)
     {
         JSONArray WatchedList = watched.GetAllWatchedMovies(user);
         Random rand = new Random();
         int i = rand.nextInt(WatchedList.length());
-        JSONObject watchedMovie = WatchedList.getJSONObject(i);
-        JSONObject movie = movies.getGenres(watchedMovie.getString(""))
-        String genre = movie.get("genre").toString();
+        JSONObject movie = WatchedList.getJSONObject(i);
+        String title = movie.get("title").toString();
+        JSONObject movie2 = movies.findMovieByTitle(title);
+        String genre = movie2.getString("genre");
 
         String[] genres = genre.split(",");
         if(genres.length > 1)
         {
             int j = rand.nextInt(genres.length);
-            int k = rand.nextInt(genres.length);
         }
         else
         {

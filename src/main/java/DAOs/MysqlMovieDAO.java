@@ -108,7 +108,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
     }
 
     @Override
-    public JSONObject findMovieByTitle(String TITLE) throws DAOException
+    public JSONObject findMovieByTitle(String TITLE)
     {
         Connection con = null;
         PreparedStatement ps = null;
@@ -165,7 +165,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-            throw new DAOException("findMovieByTitle() " + e.getMessage());
+
         }
         finally
         {
@@ -186,9 +186,10 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             }
             catch (SQLException e)
             {
-                throw new DAOException("ffindUserByUsernamePassword() " + e.getMessage());
+
             }
         }
+        return null;
     }
 
     @Override
@@ -447,7 +448,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         {
             movies.put(findMovieByTitle(inputArray[1]));
         }
-        catch (DAOException e)
+        catch (Exception e)
         {
         }
 

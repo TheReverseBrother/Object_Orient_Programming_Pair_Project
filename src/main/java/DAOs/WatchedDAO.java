@@ -314,6 +314,4 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         }
         return WatchedList;
     }
-
-
 }
