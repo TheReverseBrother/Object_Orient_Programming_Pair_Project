@@ -8,7 +8,7 @@ Each message sent starts with a number, here is what they correspond to:
 2: SEARCHBYACTOR    ***
 3: SEARCHBYTITLE    ***
 4: SEARCHBYDIRECTOR ***
-5: UPDATE
+5: UPDATE           ***
 6: ADD TO WATCHED
 7: RECOMMEND
 8: QUIT             ***

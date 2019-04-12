@@ -403,7 +403,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             ps.setString(7, movie.getString("user_rating"));
             ps.setString(8, movie.getString("MovieID"));
 
-            rs = ps.executeQuery();
+            ps.executeUpdate();
             return "SuccessFully Updated";
         }
         catch (SQLException e)

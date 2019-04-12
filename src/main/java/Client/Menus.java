@@ -222,6 +222,9 @@ public class Menus
         while (!selected)
         {
 
+            System.out.println("Welcome here are some recommended Movies");
+            Client.formatJSONMovie(Client.ClientServer.FetchingArray("7££"+Client.USERID));
+
             System.out.println("Search for Movie");
             System.out.println("Rate a Movie");
             System.out.println("Get Watched Movies");
@@ -319,6 +322,7 @@ public class Menus
 
 
                             Client.ClientServer.fetchString("5££"+movie);
+                            Client.ClientServer.Updated();
                             System.out.println("successfully rated");
 
 
@@ -334,7 +338,7 @@ public class Menus
                     else
                     {
                         System.out.println("You have not watched this movie or this movie is not part of our streaming service please enter a valid movie title");
-                        selected = false;
+                        selected = false; i = array.length();
                     }
 
                 }
@@ -432,6 +436,19 @@ public class Menus
         else
         {
             Client.formatJSONMovie(mArray);
+            System.out.println("would you like to add this movie to your watched table?");
+            System.out.println("press y for yes and any other key for no");
+
+            String selectedInput = keyboard.nextLine();
+
+
+            if(selectedInput.equals("Y")||selectedInput.equals("y"))
+            {
+                System.out.println(Client.ClientServer.fetchString("6££"+Client.USERID+movie.get("Movieid")+"££"+movie.get("title")));
+            }
+
+
+
             searchMenu();
         }
 
