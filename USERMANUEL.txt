@@ -12,8 +12,8 @@ Each message sent starts with a number, here is what they correspond to:
 6: ADD TO WATCHED
 7: RECOMMEND
 8: QUIT             ***
-9: GET WATCHED
-cache ***
+9: GET WATCHED      ***
+cache               ***
 
 REGISTER:
 0££(Username)££(Password)
