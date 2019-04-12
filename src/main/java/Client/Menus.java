@@ -5,6 +5,7 @@ import Exceptions.DAOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.naming.directory.SearchControls;
 import java.util.Scanner;
 
 
@@ -26,6 +27,9 @@ public class Menus
             System.out.println("Login");
             System.out.println("Register");
             System.out.println("Quit");
+            System.out.println();
+
+
             String selectionInput = keyboard.nextLine();
 
 
@@ -54,6 +58,8 @@ public class Menus
                 registerMenu();
 
             }
+
+
             //default
             else
             {
@@ -62,6 +68,15 @@ public class Menus
             }
 
         }
+    }
+
+    private static void deleteUser()
+    {
+        Client.ClientServer.fetchString("10££"+Client.USERID);
+        Client.USERID = -1;
+        mainMenu();
+
+
     }
 
     private static void registerMenu()
@@ -223,14 +238,25 @@ public class Menus
         {
 
             System.out.println("Welcome here are some recommended Movies");
-            Client.formatJSONMovie(Client.ClientServer.FetchingArray("7££"+Client.USERID));
+
+            JSONArray array = Client.ClientServer.FetchingArray("9££" + Client.USERID);
+
+            if(array.length()>0)
+            {
+                Client.formatJSONMovie(Client.ClientServer.FetchingArray("7££"+Client.USERID));
+            }
+            else{
+                System.out.println("you have not watched any movies so we cant recommend any to you");
+            }
+
+            //System.out.println(Client.ClientServer.FetchingArray("7££"+Client.USERID));
 
             System.out.println("Search for Movie");
             System.out.println("Rate a Movie");
             System.out.println("Get Watched Movies");
-            System.out.println("Add to Watched Movies");
             System.out.println("Logout");
-
+            System.out.println();
+            System.out.println("DELETE ACCOUNT!");
             String selectionInput = keyboard.nextLine();
 
             if (selectionInput.matches("^[Ss][eE][aA][rR][Cc][Hh]?[ ]*\\w*"))
@@ -256,6 +282,7 @@ public class Menus
             else if (selectionInput.matches("^[Aa][Dd][Dd]?[ ]*\\w*"))
             {
                 selected = true;
+                searchByTitle();
 
             }
             else if (selectionInput.matches("^[Ll][Oo][Gg][Oo][Uu][Tt]"))
@@ -263,7 +290,9 @@ public class Menus
                 selected = true;
                 Client.logout();
             }
-            else
+            else if(selectionInput.matches("^[Dd][Ee][Ll][Ee][Tt][Ee]")){deleteUser();}
+
+        else
             {
                 System.out.println("Unrecognized Command");
             }
@@ -444,7 +473,16 @@ public class Menus
 
             if(selectedInput.equals("Y")||selectedInput.equals("y"))
             {
-                System.out.println(Client.ClientServer.fetchString("6££"+Client.USERID+movie.get("Movieid")+"££"+movie.get("title")));
+
+                Client.ClientServer.fetchString("6££"+Client.USERID+"££"+movie.get("movieID")+"££"+movie.get("title"));
+                String[] success = Client.ClientServer.fetchString("6££"+Client.USERID+"££"+movie.get("movieID")+"££"+movie.get("title")).split(MovieDBDetails.BREAKINGCHARACTERS);
+                if(success[0].equals("true")){
+                    System.out.println("Added to Watched");
+                }
+                else {
+                    System.out.println("Movie already in watched");
+                }
+                Client.ClientServer.Updated();
             }
 
 
