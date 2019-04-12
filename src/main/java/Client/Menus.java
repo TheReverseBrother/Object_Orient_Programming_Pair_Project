@@ -270,21 +270,97 @@ public class Menus
 
     private static void rateMovieMenu()
     {
-        getWatchedMenu();
-        System.out.println("Which movie would you like to rate");
+        boolean movieSelected = false;
+        boolean ratingSelected = false;
+        boolean selected = false;
+        JSONObject movie = new JSONObject();
 
 
 
-    }
+            double rating = -1;
+            String selectedInput = "";
+            JSONArray array = Client.ClientServer.FetchingArray("9££" + Client.USERID);
+            System.out.println(array);
+            Scanner keyboard = new Scanner(System.in);
+            Client.formatJSONMovie(array);
+        while (!selected)
+        {
+                System.out.println("Which movie would you like to rate");
+                selectedInput = keyboard.nextLine();
+                movieSelected = true;
+
+
+                for (int i = 0; i < array.length(); i++)
+                {
+                    if (selectedInput.equals(array.getJSONObject(i).get("title")))
+                    {
+                        System.out.println("Enter your movie rating");
+                        rating = keyboard.nextDouble();
+
+                        if (rating <= 10 && rating >= 0)
+                        {
+
+                            movie.put("title", "" + array.getJSONObject(i).get("title"));
+                            movie.put("genre", "" + array.getJSONObject(i).get("genre"));
+                            movie.put("user_rating", "" + rating);
+                            movie.put("director", "" + array.getJSONObject(i).get("director"));
+                            movie.put("starring", "" + array.getJSONObject(i).get("starring"));
+                            movie.put("runtime", "" + array.getJSONObject(i).get("runtime"));
+                            movie.put("plot", "" + array.getJSONObject(i).get("plot"));
+                            movie.put("location", "" +array.getJSONObject(i).get("location"));
+                            movie.put("poster", "" + array.getJSONObject(i).get("poster"));
+                            movie.put("format", "" + array.getJSONObject(i).get("format"));
+                            movie.put("year", "" +array.getJSONObject(i).get("year"));
+                            movie.put("copies", "" + array.getJSONObject(i).get("copies"));
+                            movie.put("barcode", "" +array.getJSONObject(i).get("barcode"));
+                            movie.put("rating", "" + array.getJSONObject(i).get("rating"));
+                            movie.put("MovieID",array.getJSONObject(i).get("id"));
+
+
+
+                            Client.ClientServer.fetchString("5££"+movie);
+                            System.out.println("successfully rated");
+
+
+                            selected=true;
+                            i = array.length();
+                        }
+                        else
+                        {
+                            System.out.println("please enter a valid rating");
+                        }
+
+                    }
+                    else
+                    {
+                        System.out.println("You have not watched this movie or this movie is not part of our streaming service please enter a valid movie title");
+                        selected = false;
+                    }
+
+                }
+                if (selected)
+                {
+                    getWatchedMenu();
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
 
     private static void getWatchedMenu()
     {
         JSONArray array = Client.ClientServer.FetchingArray("9££" + Client.USERID);
-        System.out.println(array);
 
-
-        if(array.length()<=0){
-            System.out.println("You havent watched any movies");
+        if(array.length()<=0)
+        {
+            System.out.println("You haven't watched any movies");
         }
 
         else
