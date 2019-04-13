@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="TACA4" />
         <module name="Tomas_AaronOOCA" />
         <module name="tomas_aaronooca" />
       </profile>
