@@ -22,7 +22,7 @@ public class TomasDAOTesting
 
 
 //        JSONObject  ja = movies.findMovieByTitle("tammy");
-        JSONArray ja = movies.findMovieByGenre("horror");
+        JSONArray ja = watched.GetAllWatchedMovies("1");
         System.out.println(ja.toString());
 
 
