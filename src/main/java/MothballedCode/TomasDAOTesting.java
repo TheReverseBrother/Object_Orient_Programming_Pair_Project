@@ -21,8 +21,7 @@ public class TomasDAOTesting
         WatchedDAO watched = new WatchedDAO();
 
 
-//        JSONObject  ja = movies.findMovieByTitle("tammy");
-        JSONArray ja = watched.GetAllWatchedMovies("1");
+        JSONArray ja = watched.GetAllWatchedMoviesForClient("1");
         System.out.println(ja.toString());
 
 

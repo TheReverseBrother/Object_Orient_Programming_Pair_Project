@@ -206,11 +206,8 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
                 rs.first();
                 while (rs.next())
                 {
-                    System.out.println("test3");
                     movieID = Integer.parseInt(rs.getString("MovieID"));
                     movieIDs.add(movieID);
-                    System.out.println(movieIDs);
-
                 }
 
             }
