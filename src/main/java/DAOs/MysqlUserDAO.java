@@ -10,6 +10,13 @@ import java.sql.*;
 
 public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
 {
+    /**
+     * Find a username by username password returns message if both items match
+     * @param username
+     * @param Password
+     * @return
+     * @throws DAOException
+     */
     @Override
     public String findUserByUsernamePassword(String username, String Password) throws DAOException
     {
@@ -77,6 +84,12 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         return result;
     }
 
+    /**
+     * takes in username and password and add it to the user DB returns a success message
+     * @param Username
+     * @param Password
+     * @return
+     */
     @Override
     public String registerUser(String Username, String Password)
     {
@@ -126,6 +139,11 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         return result;
     }
 
+    /**
+     *  Pass in username and checks if said user is already registerd
+     * @param username
+     * @return
+     */
     public Boolean checkIfUserExists(String username)
     {
         Connection con = null;
@@ -182,6 +200,12 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         return check;
     }
 
+
+    /**
+     * Deletes a user from user table returns a message if successful
+     * @param user
+     * @return
+     */
     @Override
     public String deleteUser(String user)
     {

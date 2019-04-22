@@ -63,6 +63,10 @@ public class Connection implements Runnable
         }
     }
 
+    /**
+     * The connection is established and remains established as long as the user wishes for it to stay active
+     *
+     */
     public void handleConnection()
     {
         try
@@ -207,11 +211,26 @@ public class Connection implements Runnable
             System.out.println("HAH BITCH");
         }
     }
+
+    /**
+     * Takes in user ID Deletes it and associated table properties and
+     * then returns message user has been deleted
+     * @param userID
+     * @return
+     */
     public String deleteUser(String userID)
     {
         watched.removeUserWatched(userID);
         return user.deleteUser(userID);
     }
+
+    /**
+     * Takes in username password checks if said username
+     * is already in use and either rejects or registers the user
+     * @param Username
+     * @param Password
+     * @return
+     */
     public String Register(String Username,String Password)
     {
         Boolean exists = user.checkIfUserExists(Username);
@@ -226,6 +245,14 @@ public class Connection implements Runnable
         }
     }
 
+    /**
+     * takes in the users id who requested to add to watched, Takes in the movie then want to add and the movies Title
+     * returns false if movie already in watched list and true if it has been added
+     * @param user, User ID
+     * @param movie, Movie ID
+     * @param title, Movie Title
+     * @return
+     */
     public String AddtoWatchedChecker(String user,String movie, String title)
     {
         boolean isWatched = watched.CheckIfWatched(user,movie);
@@ -239,6 +266,13 @@ public class Connection implements Runnable
             return "true££"+watched.AddtoWatched(user,movie,title);
         }
     }
+
+    /**
+     * Takes in the users id checks their list of watched movies finds a genre from one of the movies searches
+     * for movies using that genre then returns a list of 10 movies based upon if they have watched them or not
+     * @param user
+     * @return
+     */
     public static String recommendMovie(String user)
     {
         JSONArray WatchedList = watched.GetAllWatchedMovies(user);

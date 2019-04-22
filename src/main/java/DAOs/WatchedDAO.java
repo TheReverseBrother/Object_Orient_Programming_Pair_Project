@@ -13,6 +13,11 @@ import java.util.NoSuchElementException;
 
 public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
 {
+    /**
+     * Takes in User Id returns all Movies watched by said user
+     * @param user
+     * @return
+     */
     @Override
     public JSONArray GetAllWatchedMovies(String user)
     {
@@ -78,6 +83,14 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
     }
 
 
+    /**
+     * Takes in User ID movieID and Movie Title, Adds Movie to watched table
+     * returns success message
+     * @param user
+     * @param movie
+     * @param title
+     * @return
+     */
     @Override
     public String AddtoWatched(String user, String movie, String title)
     {
@@ -96,7 +109,7 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
             ps.setInt(2, movieID);
             ps.setString(3, title);
             ps.executeUpdate();
-            result = "SuccesfullyAdded";
+            result = "Succesfully Added";
 
         }
         catch (SQLException e)
@@ -129,6 +142,13 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         return result;
     }
 
+
+    /**
+     * takes in mpovie and user checks if they have watched it and returns true or false
+     * @param user
+     * @param movie
+     * @return
+     */
     @Override
     public Boolean CheckIfWatched(String user, String movie)
     {
@@ -177,7 +197,11 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         return false;
     }
 
-
+    /**
+     *A second get all watched movies client similarly to the first returns a jsonarray
+     * @param user
+     * @return
+     */
     @Override
     public JSONArray GetAllWatchedMoviesForClient(String user)
     {
@@ -253,6 +277,11 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         else { return getMovieList(movieIDs);}
     }
 
+    /**
+     *
+     * @param movieIDs
+     * @return
+     */
     private JSONArray getMovieList(ArrayList<Integer> movieIDs)
     {
         Connection con = null;
@@ -332,6 +361,10 @@ public class WatchedDAO extends MysqlDAO implements WatchedDAOInterface
         return WatchedList;
     }
 
+    /**
+     * Removes a users watched list when user is being deleted
+     * @param User
+     */
     @Override
     public void removeUserWatched(String User)
     {

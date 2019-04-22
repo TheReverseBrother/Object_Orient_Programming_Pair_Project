@@ -12,6 +12,10 @@ import java.sql.SQLException;
 
 public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
 {
+    /**
+     * Returns all movies in DB
+     * @return
+     */
     @Override
     public JSONArray findAllMovies()
     {
@@ -107,6 +111,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return movies;
     }
 
+    /**
+     * Takes in an Movie Title and returns movie object if exists
+     * @param TITLE
+     * @return
+     */
     @Override
     public JSONObject findMovieByTitle(String TITLE)
     {
@@ -192,6 +201,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return null;
     }
 
+    /**
+     *  Takes in an Director Name and returns an Array of movies if directorr exists
+     * @param Director
+     * @return
+     */
     @Override
     public JSONArray findMovieByDirector(String Director)
     {
@@ -286,6 +300,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return movies;
     }
 
+    /**
+     * Takes in an actor Name and returns an Array of movies if actor exists
+     * @param Actor
+     * @return
+     */
     @Override
     public JSONArray findMovieByActor(String Actor)
     {
@@ -381,6 +400,12 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return movies;
     }
 
+    /**
+     * Takes in a JSON Movie and uses it to Update the corresponding
+     * movie in the DB returns Success or fail message
+     * @param movie
+     * @return
+     */
     @Override
     public String updateMovieByID(JSONObject movie)
     {
@@ -435,6 +460,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return null;
     }
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     @Override
     public String updateMovieByTitle(String input)
     {
@@ -545,6 +575,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
     }
 
 
+    /**
+     * takes in a title and returns a String object with all movie Genres
+     * @param title
+     * @return
+     */
     @Override
     public String getGenres(String title)
     {
@@ -601,6 +636,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
     }
 
 
+    /**
+     *
+     * @param userID
+     * @return
+     */
     @Override
     public JSONObject findWatchedMovie(String userID)
     {
@@ -688,6 +728,11 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         return null;
     }
 
+    /**
+     * Takes in a genre and reutrns 10 movies with similar genre
+     * @param GENRE
+     * @return
+     */
     @Override
     public JSONArray findMovieByGenre(String GENRE)
     {

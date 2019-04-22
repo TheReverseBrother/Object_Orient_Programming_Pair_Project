@@ -38,7 +38,9 @@ public class MovieServer
         }
     }
 
-
+    /**
+     *Once handlers are set up connections can be accepted
+     */
     public void acceptConnections()
     {
         try
@@ -60,6 +62,10 @@ public class MovieServer
         }
     }
 
+    /**
+     * Takes in the connection to handle and creates a thread
+     * @param connectionToHandle
+     */
     public void handleConnection(Socket connectionToHandle)
     {
         Connection.processRequest(connectionToHandle);
