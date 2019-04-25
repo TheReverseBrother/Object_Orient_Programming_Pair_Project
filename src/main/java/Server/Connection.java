@@ -4,15 +4,13 @@ import CoreDetails.MovieDBDetails;
 import DAOs.MysqlMovieDAO;
 import DAOs.MysqlUserDAO;
 import DAOs.WatchedDAO;
+import Exceptions.DAOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Connection implements Runnable
 {
@@ -205,10 +203,17 @@ public class Connection implements Runnable
             in.close();
             socketToHandle.close();
         }
-        catch(Exception e)
+        catch(IOException e)
         {
-            e.printStackTrace();
-            System.out.println("HAH BITCH");
+            System.out.println("Connection Abruptly Severed");
+        }
+        catch(DAOException e)
+        {
+            System.out.println("PDO Problem");
+        }
+        catch(NoSuchElementException e)
+        {
+            System.out.println("Connection Abruptly Terminated");
         }
     }
 

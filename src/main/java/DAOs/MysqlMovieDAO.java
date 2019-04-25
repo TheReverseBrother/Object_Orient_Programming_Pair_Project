@@ -83,7 +83,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error in PDO");
         }
         finally
         {
@@ -174,7 +174,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -273,6 +273,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -373,7 +374,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -454,7 +455,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
             }
             catch (SQLException e)
             {
-                e.printStackTrace();
+                System.out.println("Error In PDO");
             }
         }
         return null;
@@ -546,7 +547,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -609,7 +610,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -700,7 +701,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -801,7 +802,7 @@ public class MysqlMovieDAO extends MysqlDAO implements MovieDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {

@@ -2,6 +2,7 @@ package Server;
 
 import CoreDetails.MovieDBDetails;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -55,10 +56,9 @@ public class MovieServer
             }
 
         }
-        catch(Exception e)
+        catch(IOException e)
         {
-            e.printStackTrace();
-            System.out.println("FUUUUUUCK");
+            System.out.println("Connection Abruptly terminated");
         }
     }
 

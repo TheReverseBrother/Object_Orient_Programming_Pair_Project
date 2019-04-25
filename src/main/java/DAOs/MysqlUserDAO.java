@@ -172,7 +172,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         }
         catch (SQLException e)
         {
-
+            System.out.println("Error In PDO");
         }
         finally
         {
@@ -227,7 +227,7 @@ public class MysqlUserDAO extends MysqlDAO implements UserDAOInterface
         }
         catch(SQLException e)
         {
-            System.out.println("SQL");
+            System.out.println("Error In PDO");
             e.printStackTrace();
         }
         finally {
