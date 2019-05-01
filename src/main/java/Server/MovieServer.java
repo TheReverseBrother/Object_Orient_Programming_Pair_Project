@@ -42,6 +42,7 @@ public class MovieServer
     /**
      *Once handlers are set up connections can be accepted
      */
+
     public void acceptConnections()
     {
         try
